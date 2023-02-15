@@ -186,7 +186,7 @@ view: superstore_datasets {
     filters: [order_date: "10 year ago"]
   }
 
-  measure: prev1_profit {
+  measure: prev11_profit {
     type: sum
     sql: ${total_profit} ;;
     filters: [order_date: "11 year ago"]
@@ -194,7 +194,7 @@ view: superstore_datasets {
 
   measure: provit_growth {
     type: number
-    sql: (${prev_profit}-${prev1_profit})/${prev_profit} ;;
+    sql: (${prev_profit}-${prev11_profit})/${prev_profit} ;;
   }
 
   measure: max_date {
