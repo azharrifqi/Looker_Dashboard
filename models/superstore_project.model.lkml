@@ -12,6 +12,7 @@ datagroup: superstore_project_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+
 persist_with: superstore_project_default_datagroup
 
 # Explores allow you to join together different views (database tables) based on the

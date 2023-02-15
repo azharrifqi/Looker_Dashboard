@@ -16,6 +16,7 @@ view: superstore_datasets {
     sql: ${TABLE}.category ;;
   }
 
+
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
@@ -177,6 +178,28 @@ view: superstore_datasets {
   measure: total_order {
     type: count_distinct
     sql: ${order_id} ;;
+  }
+
+  measure: prev_profit {
+    type: sum
+    sql: ${total_profit} ;;
+    filters: [order_date: "10 year ago"]
+  }
+
+  measure: prev1_profit {
+    type: sum
+    sql: ${total_profit} ;;
+    filters: [order_date: "11 year ago"]
+  }
+
+  measure: provit_growth {
+    type: number
+    sql: (${prev_profit}-${prev1_profit})/${prev_profit} ;;
+  }
+
+  measure: max_date {
+    type: date
+    sql: MAX(${order_date}) ;;
   }
 
   dimension: view {
