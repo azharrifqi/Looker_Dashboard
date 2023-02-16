@@ -11,11 +11,11 @@ view: superstore_datasets {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Category" in Explore.
 
+
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
   }
-
 
   dimension: city {
     type: string
@@ -46,6 +46,10 @@ view: superstore_datasets {
     map_layer_name: countries
     sql: ${TABLE}.country ;;
   }
+
+
+  drill_fields: []
+
 
   dimension: customer_name {
     type: string
@@ -178,6 +182,7 @@ view: superstore_datasets {
   measure: total_order {
     type: count_distinct
     sql: ${order_id} ;;
+    drill_fields: [category, sub_category]
   }
 
   measure: prev_profit {
@@ -197,9 +202,14 @@ view: superstore_datasets {
     sql: (${prev_profit}-${prev11_profit})/${prev_profit} ;;
   }
 
-  measure: max_date {
+  dimension: max_date {
     type: date
     sql: MAX(${order_date}) ;;
+  }
+
+  measure: filter_max_date {
+    type: yesno
+    sql: ${order_date}=MAX(${order_date})  ;;
   }
 
   dimension: view {
