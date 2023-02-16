@@ -47,8 +47,7 @@ view: superstore_datasets {
     sql: ${TABLE}.country ;;
   }
 
-
-  drill_fields: []
+  drill_fields: [region, country, city]
 
 
   dimension: customer_name {
@@ -182,7 +181,7 @@ view: superstore_datasets {
   measure: total_order {
     type: count_distinct
     sql: ${order_id} ;;
-    drill_fields: [category, sub_category]
+    drill_fields: [category, total_profit]
   }
 
   measure: prev_profit {
