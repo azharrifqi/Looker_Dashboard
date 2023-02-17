@@ -133,6 +133,24 @@ view: superstore_datasets {
     sql: ${TABLE}.ship_date ;;
   }
 
+
+  parameter: item_to_add_up {
+    type: unquoted
+    allowed_value: {
+      label: "Total GMV"
+      value: "total_gmv"
+    }
+    allowed_value: {
+      label: "Total Profit"
+      value: "total_profit"
+    }
+  }
+
+  measure: dynamic_sum {
+    type: sum
+    sql: ${TABLE}.{% parameter item_to_add_up %} ;;
+  }
+
   dimension: ship_mode {
     type: string
     sql: ${TABLE}.ship_mode ;;
