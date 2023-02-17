@@ -27,3 +27,5 @@ persist_with: superstore_project_default_datagroup
 # Each joined view also needs to define a primary key.
 
 explore: superstore_datasets {}
+
+explore: test {}
