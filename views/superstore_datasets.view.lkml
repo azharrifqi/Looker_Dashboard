@@ -149,6 +149,7 @@ view: superstore_datasets {
   measure: dynamic_sum {
     type: sum
     sql: ${TABLE}.{% parameter item_to_add_up %} ;;
+    value_format_name: "usd"
   }
 
   dimension: ship_mode {
