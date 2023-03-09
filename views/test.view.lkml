@@ -45,7 +45,14 @@ view: test {
     sql: ${TABLE}.country ;;
   }
 
-  # drill_fields: [region, country, city]
+  dimension: countries {
+    type: string
+    map_layer_name: countries
+    drill_fields: [category,region]
+    sql: ${TABLE}.country ;;
+  }
+
+  drill_fields: [region, country, city]
 
 
   dimension: customer_name {
