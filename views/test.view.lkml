@@ -45,7 +45,7 @@ view: test {
     sql: ${TABLE}.country ;;
   }
 
-  drill_fields: [region, country, city]
+  # drill_fields: [region, country, city]
 
 
   dimension: customer_name {
@@ -163,7 +163,7 @@ view: test {
 
   measure: count {
     type: count
-    drill_fields: [customer_name]
+    drill_fields: [region, ship_mode]
   }
 
   measure: mtotal_profit {

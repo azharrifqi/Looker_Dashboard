@@ -2,7 +2,7 @@
   title: cek
   layout: newspaper
   width: 600
-  height: 300
+  height: 400
   preferred_viewer: dashboards-next
   description: ''
   preferred_slug: jjwGtzx6om3U0t4M62Whhb

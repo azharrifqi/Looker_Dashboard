@@ -288,4 +288,11 @@ view: superstore_datasets {
     <Link href="https://datalabs.cloud.looker.com/looks/2">
     <div>;;
   }
+
+  dimension: area {
+    map_layer_name: uk_postcode_areas
+    sql: ${city} ;;
+  }
 }
+
+
