@@ -52,7 +52,7 @@ view: test {
     sql: ${TABLE}.country ;;
   }
 
-  drill_fields: [region, country, city]
+  # drill_fields: [region, country, city]
 
 
   dimension: customer_name {
