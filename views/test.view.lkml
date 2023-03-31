@@ -274,4 +274,10 @@ view: test {
           <Link href="https://datalabs.cloud.looker.com/looks/2">
           <div>;;
   }
+  measure: total_gross_margin {
+    type: sum
+    value_format_name: decimal_2
+    sql: ${total_profit} ;;
+    html: {{ rendered_value }}  of total ;;
+  }
 }
