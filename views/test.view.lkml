@@ -278,7 +278,7 @@ view: test {
     type: sum
     value_format_name: decimal_2
     sql: ${total_profit} ;;
-    html: {{ rendered_value }} | {{value}} of total
-    <li> query timezone: {{ _query._query_timezone }} </li>;;
+    html: {{ rendered_value }} | {{value}} of total | <li> dialect: {{ _dialect._name }} </li>
+    <li> user attribute: {{ _user_attributes }} </li>;;
   }
 }
