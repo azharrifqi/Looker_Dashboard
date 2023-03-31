@@ -285,5 +285,6 @@ view: test {
   measure: Test {
     type: sum
     sql: ${total_profit} ;;
+    drill_fields: [category,region]
   }
 }
