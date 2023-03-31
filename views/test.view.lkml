@@ -281,4 +281,9 @@ view: test {
     html: {{ rendered_value }} | {{value}} of total | <li> dialect: {{ _dialect._name }} </li>
     <li> user attribute: {{ _user_attributes }} </li>;;
   }
+
+  measure: Test {
+    type: sum
+    sql: ${total_profit} ;;
+  }
 }
