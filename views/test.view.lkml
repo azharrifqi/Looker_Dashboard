@@ -278,6 +278,6 @@ view: test {
     type: sum
     value_format_name: decimal_2
     sql: ${total_profit} ;;
-    html: {{ rendered_value }}  of total ;;
+    html: {{ rendered_value }} | {{value}} of total ;;
   }
 }
