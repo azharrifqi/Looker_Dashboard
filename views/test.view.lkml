@@ -287,11 +287,12 @@ view: test {
     sql: ${total_profit} ;;
   }
 
-  measure: TestHide {
-    type: sum
-    hidden: yes
-    sql: ${total_profit} ;;
-  }
+  # measure: TestHide {
+  #   type: sum
+  #   required_access_grants: []
+  #   hidden: yes
+  #   sql: ${total_profit} ;;
+  # }
   measure: TestTest {
     type: sum
     # hidden: yes
