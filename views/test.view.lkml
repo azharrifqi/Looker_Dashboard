@@ -287,9 +287,14 @@ view: test {
     sql: ${total_profit} ;;
   }
 
-  measure: TestTest {
+  measure: TestHide {
     type: sum
     hidden: yes
+    sql: ${total_profit} ;;
+  }
+  measure: TestTest {
+    type: sum
+    # hidden: yes
     sql: ${total_profit} ;;
   }
 }
