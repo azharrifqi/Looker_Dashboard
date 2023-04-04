@@ -30,4 +30,6 @@ explore: superstore_datasets {}
 
 explore: test {}
 
-explore: hidden_test {}
+explore: hidden_test {
+  hidden: yes
+}
