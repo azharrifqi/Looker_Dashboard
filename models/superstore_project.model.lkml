@@ -32,5 +32,5 @@ explore: test {}
 
 explore: hidden_test {
   required_access_grants: []
-  hidden: yes
+  # hidden: yes
 }
