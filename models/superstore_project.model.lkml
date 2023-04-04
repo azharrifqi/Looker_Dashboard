@@ -29,3 +29,5 @@ persist_with: superstore_project_default_datagroup
 explore: superstore_datasets {}
 
 explore: test {}
+
+explore: hidden_test {}
