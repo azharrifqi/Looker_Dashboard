@@ -29,8 +29,3 @@ persist_with: superstore_project_default_datagroup
 explore: superstore_datasets {}
 
 explore: test {}
-
-explore: hidden_test {
-  # required_access_grants: []
-  # hidden: yes
-}
