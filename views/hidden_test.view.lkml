@@ -1,5 +1,7 @@
 view: hidden_test {
 
+  sql_table_name: `dwh_dla_acl.superstore_datasets`;;
+
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
