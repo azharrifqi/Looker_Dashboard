@@ -31,5 +31,6 @@ explore: superstore_datasets {}
 explore: test {}
 
 explore: hidden_test {
+  required_access_grants: []
   hidden: yes
 }
