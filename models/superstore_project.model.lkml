@@ -14,7 +14,7 @@ datagroup: superstore_project_default_datagroup {
 
 access_grant: admin_only {
   user_attribute: bq_viewer
-  allowed_values: []
+  allowed_values: ["Can"]
 }
 persist_with: superstore_project_default_datagroup
 
