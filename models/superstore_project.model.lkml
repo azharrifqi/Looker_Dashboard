@@ -31,4 +31,6 @@ persist_with: superstore_project_default_datagroup
 
 explore: superstore_datasets {}
 
-explore: test {}
+explore: test {
+  required_access_grants: [admin_only]
+}
