@@ -12,7 +12,10 @@ datagroup: superstore_project_default_datagroup {
   max_cache_age: "1 hour"
 }
 
-
+access_grant: admin_only {
+  user_attribute: bq_viewer
+  allowed_values: []
+}
 persist_with: superstore_project_default_datagroup
 
 # Explores allow you to join together different views (database tables) based on the
