@@ -123,6 +123,11 @@ view: test {
     sql: ${TABLE}.segment ;;
   }
 
+  dimension: product_image {
+    sql: ${sub_category} ;;
+    html: <img src="https://www.altostrat.com/product_images/{{ value }}.jpg" /> ;;
+  }
+
   dimension_group: ship {
     type: time
     timeframes: [
@@ -170,7 +175,7 @@ view: test {
 
   measure: count {
     type: count
-    drill_fields: [region, ship_mode]
+    drill_fields: [region, ship_mode, mtotal_profit]
   }
 
   measure: mtotal_profit {
