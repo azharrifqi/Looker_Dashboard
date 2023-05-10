@@ -20,6 +20,11 @@ view: test {
     sql: ${TABLE}.city ;;
   }
 
+  dimension: city2 {
+    type: string
+    sql: ${TABLE}.city ;;
+  }
+
   dimension: cost {
     type: number
     sql: ${TABLE}.cost ;;
