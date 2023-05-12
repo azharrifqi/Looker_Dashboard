@@ -10,4 +10,8 @@ measure: Total_Customer {
   type: count_distinct
   sql: customer_id ;;
 }
+measure: bulan {
+  type: string
+  sql: EXTRACT(MONTH FROM date) ;;
+}
 }
