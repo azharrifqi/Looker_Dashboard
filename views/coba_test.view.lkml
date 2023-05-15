@@ -5,6 +5,10 @@ dimension: Customer_id  {
   type: number
   sql: ${TABLE}.customer_id ;;
 }
+dimension: customer_type {
+  type: string
+  sql: ${TABLE}.customer_type ;;
+}
 
 measure: Total_Customer {
   type: count_distinct
