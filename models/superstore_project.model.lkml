@@ -35,3 +35,4 @@ explore: superstore_datasets {}
 explore: test {
   required_access_grants: [admin_only]
 }
+explore: coba_test {}
