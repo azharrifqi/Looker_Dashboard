@@ -15,6 +15,14 @@ dimension: Customer_Age {
   sql: ${TABLE}.customer_age ;;
 }
 
+dimension: Kelompok_Usia {
+  type: string
+  sql: CASE WHEN ${TABLE}.customer_age BETWEEN 17 AND 25 THEN "REMAJA"
+  WHEN customer_age BETWEEN 26 AND 50 then "DEWASA"
+  WHEN customer_age >= 51 then "LANSIA"
+  END
+  ;;
+}
 measure: Total_Customer {
   type: count_distinct
   sql: customer_id ;;
