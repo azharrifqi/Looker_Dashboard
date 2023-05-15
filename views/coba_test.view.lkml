@@ -10,6 +10,11 @@ dimension: customer_type {
   sql: ${TABLE}.customer_type ;;
 }
 
+dimension: Customer_Age {
+  type: number
+  sql: ${TABLE}.customer_age ;;
+}
+
 measure: Total_Customer {
   type: count_distinct
   sql: customer_id ;;
@@ -18,4 +23,5 @@ measure: bulan {
   type: string
   sql: EXTRACT(MONTH FROM date) ;;
 }
+
 }
