@@ -47,7 +47,7 @@ view: superstore_datasets {
     sql: ${TABLE}.country ;;
   }
 
-  drill_fields: [region, country, city, mtotal_profit]
+  # drill_fields: [region, country, city, mtotal_profit]
 
 
   dimension: customer_name {
@@ -189,11 +189,13 @@ view: superstore_datasets {
 
   measure: mtotal_profit {
     type: sum
+    drill_fields: [region, country, city, mtotal_profit]
     sql: ${total_profit} ;;
   }
 
   measure: mtotal_gmv {
     type: sum
+    drill_fields: [region, country, city, mtotal_gmv]
     sql: ${total_gmv} ;;
   }
 
