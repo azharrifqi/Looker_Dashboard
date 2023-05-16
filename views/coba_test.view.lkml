@@ -9,6 +9,10 @@ dimension: customer_type {
   type: string
   sql: ${TABLE}.customer_type ;;
 }
+dimension: Date_Transaction{
+  type: date_day_of_month
+  sql: ${TABLE}.date ;;
+}
 
 dimension: Customer_Age {
   type: number
