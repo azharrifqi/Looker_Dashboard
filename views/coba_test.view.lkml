@@ -10,7 +10,7 @@ dimension: customer_type {
   sql: ${TABLE}.customer_type ;;
 }
 dimension: Date_Transaction{
-  type: date_day_of_month
+  type: date_month
   sql: ${TABLE}.date ;;
 }
 
