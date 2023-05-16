@@ -202,6 +202,15 @@ view: superstore_datasets {
     sql: ${total_profit} ;;
   }
 
+  dimension: city_with_liquid {
+    type: string
+    link: {
+      label: "Status Total Provit"
+      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={value}&YEAR="
+    }
+    sql: ${city} ;;
+  }
+
   measure: mtotal_gmv {
     type: sum
     drill_fields: [region, country, city, mtotal_gmv]
