@@ -189,7 +189,7 @@ view: superstore_datasets {
 
   measure: mtotal_profit {
     type: sum
-    drill_fields: [region, country, city, mtotal_profit]
+    drill_fields: [region, country, city_with_liquid, mtotal_profit]
     sql: ${total_profit} ;;
   }
 
