@@ -28,5 +28,13 @@ measure: Total_Customer {
   sql: customer_id ;;
 }
 
+dimension_group: Date {
+  type: time
+  timeframes: [
+    date,
+    month,
+    year
+  ]
+}
 
 }
