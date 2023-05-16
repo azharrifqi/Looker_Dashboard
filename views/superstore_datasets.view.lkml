@@ -206,7 +206,7 @@ view: superstore_datasets {
     type: string
     link: {
       label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={value}&YEAR="
+      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY=${city}&YEAR="
     }
     sql: ${city} ;;
   }
