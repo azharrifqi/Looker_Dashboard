@@ -47,7 +47,7 @@ view: superstore_datasets {
     sql: ${TABLE}.country ;;
   }
 
-  drill_fields: [region, country, city]
+  drill_fields: [region, country, city, mtotal_profit]
 
 
   dimension: customer_name {
@@ -294,5 +294,3 @@ view: superstore_datasets {
     sql: ${city} ;;
   }
 }
-
-
