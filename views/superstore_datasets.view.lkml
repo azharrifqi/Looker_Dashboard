@@ -199,6 +199,7 @@ view: superstore_datasets {
       label: "Status Total Provit"
       url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={value}&YEAR="
     }
+    sql: ${total_profit} ;;
   }
 
   measure: mtotal_gmv {
