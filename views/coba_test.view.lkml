@@ -23,6 +23,11 @@ dimension: Kelompok_Usia {
   END
   ;;
 }
+
+measure: coba {
+  type: number
+  sql: case when ${Customer_Age} then ${Customer_2020} end  ;;
+}
 measure: Customer_2020 {
   type: count_distinct
   sql: customer_id ;;
