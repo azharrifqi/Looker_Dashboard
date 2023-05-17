@@ -36,3 +36,5 @@ explore: test {
   required_access_grants: [admin_only]
 }
 explore: coba_test {}
+explore: order_details {}
+explore: order_list {}
