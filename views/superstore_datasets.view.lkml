@@ -47,7 +47,7 @@ view: superstore_datasets {
     sql: ${TABLE}.country ;;
   }
 
-  drill_fields: [region, country, city]
+  # drill_fields: [region, country, city, mtotal_profit]
 
 
   dimension: customer_name {
@@ -187,13 +187,38 @@ view: superstore_datasets {
     drill_fields: [customer_name]
   }
 
+  measure: check {
+    type: count_distinct
+    sql: ${TABLE}.region ;;
+  }
+
   measure: mtotal_profit {
     type: sum
+    drill_fields: [region, country, city_with_liquid, mtotal_profit]
     sql: ${total_profit} ;;
+  }
+
+  measure: mtotal_profit_with_liquid {
+    type: sum
+    link: {
+      label: "Status Total Provit"
+      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={value}&YEAR="
+    }
+    sql: ${total_profit} ;;
+  }
+
+  dimension: city_with_liquid {
+    type: string
+    link: {
+      label: "Status Total Provit"
+      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+    }
+    sql: ${city} ;;
   }
 
   measure: mtotal_gmv {
     type: sum
+    drill_fields: [region, country, city, mtotal_gmv]
     sql: ${total_gmv} ;;
   }
 
@@ -294,5 +319,3 @@ view: superstore_datasets {
     sql: ${city} ;;
   }
 }
-
-
