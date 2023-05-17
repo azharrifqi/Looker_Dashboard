@@ -31,7 +31,6 @@ measure: coba {
 measure: Customer_2020 {
   type: count_distinct
   sql: customer_id ;;
-  filters: [Date_year: "2020"]
 }
 
 dimension_group: Date {
@@ -45,7 +44,7 @@ dimension_group: Date {
   measure: customer_2021 {
     type: count_distinct
     sql: customer_id ;;
-    filters: [Date_year: "2021"]
+
   }
 
 measure: total {
