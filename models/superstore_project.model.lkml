@@ -38,10 +38,3 @@ explore: test {
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}
-
-view: cobajoin {
-  derived_table: {
-    sql: select * from  order_details
-    cross join order_list;;
-  }
-}
