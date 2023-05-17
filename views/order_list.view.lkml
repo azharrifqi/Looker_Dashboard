@@ -1,5 +1,5 @@
 view: order_list {
-  sql_table_name: dwh_dla_acl.customers_360_datasets ;;
+  sql_table_name: dwh_dla_acl.order_lists ;;
 
   dimension: order_id {
     type: number
