@@ -48,4 +48,8 @@ dimension_group: Date {
     filters: [Date_year: "2021"]
   }
 
+measure: total {
+  type: number
+  sql: count(${Customer_id});;
+}
 }
