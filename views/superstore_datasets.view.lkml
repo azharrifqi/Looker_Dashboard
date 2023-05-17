@@ -187,6 +187,11 @@ view: superstore_datasets {
     drill_fields: [customer_name]
   }
 
+  measure: check {
+    type: count_distinct
+    sql: ${TABLE}.region ;;
+  }
+
   measure: mtotal_profit {
     type: sum
     drill_fields: [region, country, city_with_liquid, mtotal_profit]

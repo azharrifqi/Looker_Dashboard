@@ -10,6 +10,7 @@ view: test {
   # This dimension will be called "Category" in Explore.
 
 
+
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
@@ -304,8 +305,10 @@ view: test {
   #   sql: ${total_profit} ;;
   # }
   measure: TestTest {
+    required_access_grants: [admin_only]
     type: sum
     # hidden: yes
     sql: ${total_profit} ;;
   }
+
 }
