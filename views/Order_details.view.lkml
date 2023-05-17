@@ -5,4 +5,12 @@ view: order_details {
     type: number
     sql: ${TABLE}.order_id ;;
   }
+  dimension: sales {
+    type: number
+    sql: ${TABLE}.sales ;;
+  }
+  dimension: category {
+    type: string
+    sql: ${TABLE}.category ;;
+  }
  }
