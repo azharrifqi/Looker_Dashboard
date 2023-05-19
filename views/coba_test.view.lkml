@@ -15,6 +15,11 @@ dimension: Customer_Age {
   sql: ${TABLE}.customer_age ;;
 }
 
+  dimension: Customer_Age2 {
+    type: number
+    sql: ${TABLE}.customer_age ;;
+  }
+
 dimension: Kelompok_Usia {
   type: string
   sql: CASE WHEN ${TABLE}.customer_age BETWEEN 17 AND 25 THEN "REMAJA"
