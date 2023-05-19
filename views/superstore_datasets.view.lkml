@@ -41,6 +41,11 @@ view: superstore_datasets {
     sql: ${cost} ;;
   }
 
+  measure: costa {
+    type: sum
+    sql: ${TABLE}.cost ;;
+  }
+
   dimension: country {
     type: string
     map_layer_name: countries
