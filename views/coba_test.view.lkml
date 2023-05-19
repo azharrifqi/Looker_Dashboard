@@ -52,6 +52,11 @@ dimension_group: Date {
 
   }
 
+  measure: count {
+    type: count
+    drill_fields: []
+  }
+
 measure: total {
   type: number
   sql: count(${Customer_id});;
