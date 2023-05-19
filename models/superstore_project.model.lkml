@@ -32,9 +32,7 @@ persist_with: superstore_project_default_datagroup
 
 explore: superstore_datasets {}
 
-explore: test {
-  required_access_grants: [admin_only]
-}
+explore: test {}
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}
