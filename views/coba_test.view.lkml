@@ -61,7 +61,7 @@ measure: total {
   type: number
   sql: count(${Customer_id});;
 }
-  measure: total3 {
+  measure: total2 {
     type: count_distinct
     sql: customer_id ;;
   }
