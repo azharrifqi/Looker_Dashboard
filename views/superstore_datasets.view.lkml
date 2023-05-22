@@ -37,13 +37,6 @@ view: superstore_datasets {
     sql: ${cost} ;;
   }
 
-
-  measure: totalcost {
-    type: sum
-    drill_fields: [region, country, totalcost]
-    sql: ${cost}:total ;;
-  }
-
   measure: average_cost {
     type: average
     sql: ${cost} ;;
