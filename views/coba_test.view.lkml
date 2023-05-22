@@ -65,4 +65,8 @@ measure: total {
     type: count_distinct
     sql: customer_id ;;
   }
+  measure: last_update {
+    type: date
+    sql: max(${TABLE}.Date ;;
+  }
 }
