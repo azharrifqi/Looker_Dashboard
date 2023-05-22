@@ -67,6 +67,6 @@ measure: total {
   }
   measure: last_update {
     type: date
-    sql: max(${TABLE}.Date ;;
+    sql: MAX(${Date_date}) ;;
   }
 }
