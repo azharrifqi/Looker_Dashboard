@@ -322,4 +322,8 @@ view: superstore_datasets {
     map_layer_name: uk_postcode_areas
     sql: ${city} ;;
   }
+  measure: last_update {
+    type: date
+    sql: MAX(${order_date}) ;;
+  }
 }
