@@ -318,8 +318,4 @@ view: superstore_datasets {
     map_layer_name: uk_postcode_areas
     sql: ${city} ;;
   }
-  dimension: Last_Update {
-    type: date
-    sql: min(${order_date} ;;
-  }
 }
