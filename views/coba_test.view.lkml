@@ -67,6 +67,7 @@ measure: total {
   }
   measure: last_update {
     type: date
+    value_format: "YYYYMMM"
     sql: MAX(${Date_date}) ;;
   }
 }
