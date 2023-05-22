@@ -180,7 +180,7 @@ view: superstore_datasets {
 
   measure: show_total {
     type: number
-    drill_fields: [region, country, show_total]
+    drill_fields: [region, country, mtotal_profit]
     sql: sum(${mtotal_profit}) over() ;;
   }
 
