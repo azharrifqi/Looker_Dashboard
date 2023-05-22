@@ -219,6 +219,7 @@ view: superstore_datasets {
   measure: mtotal_gmv {
     type: sum
     drill_fields: [region, country, city, mtotal_gmv]
+    value_format: " [>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0"
     sql: ${total_gmv} ;;
   }
 
