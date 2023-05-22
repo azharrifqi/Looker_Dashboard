@@ -11,7 +11,6 @@ view: superstore_datasets {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Category" in Explore.
 
-
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
