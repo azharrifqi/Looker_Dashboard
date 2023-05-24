@@ -225,10 +225,7 @@ view: superstore_datasets {
     html: {% if value == 'France' %}
     [city_with_liquid]
     {% else %}
-    link: {
-      label: "CITYES"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/10?MONTH=&CITY={{value}}&YEAR="
-    }
+    [ship_mode]
       {% endif %};;
     sql: ${region} ;;
   }
