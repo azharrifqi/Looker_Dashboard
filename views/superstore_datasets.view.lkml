@@ -204,19 +204,38 @@ view: superstore_datasets {
     type: sum
     link: {
       label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={value}&YEAR="
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={value}&YEAR="
     }
     sql: ${total_profit} ;;
   }
+
 
   dimension: city_with_liquid {
     type: string
     link: {
       label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
     }
     sql: ${city} ;;
   }
+
+
+  dimension: cities_liquid {
+    type: string
+    html: {% if value == 'Frankfurt' %}
+    link: {
+    label: "CITIES"
+    url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+    }
+    {% else %}
+    link: {
+      label: "CITYES"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/10?MONTH=&CITY={{value}}&YEAR="
+    }
+      {% endif %};;
+    sql: ${city} ;;
+  }
+
 
   measure: mtotal_gmv {
     type: sum
@@ -327,8 +346,8 @@ view: superstore_datasets {
   }
   dimension: Status {
     type: string
-    sql: case when ${TABLE}.profit > 75 then "success"
-    when ${TABLE}.profit < 75 then "Fail" end;;
+    sql: case when ${TABLE}.profit >= 75 then "success"
+      when ${TABLE}.profit <= 74 then "Fail" end;;
   }
 
 }
