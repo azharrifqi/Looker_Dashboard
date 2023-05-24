@@ -357,7 +357,7 @@ view: superstore_datasets {
 
   dimension: Status_Berhasil {
     type: number
-    sql: case when ${profit} >=75 then "Berhasil"end  ;;
+    sql: case when ${profit} >=75 then 1 end  ;;
   link: {
     label: "Status Total Provit"
     url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
@@ -366,7 +366,7 @@ view: superstore_datasets {
 
   dimension: Status_Gagal {
     type: number
-    sql: case when ${profit} <= 74 then "Gagal"end  ;;
+    sql: case when ${profit} <= 74 then 0 end  ;;
     link: {
       label: "Status Total Provit"
       url: "https://datalabs.cloud.looker.com/embed/dashboards/30"
