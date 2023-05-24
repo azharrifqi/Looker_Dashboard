@@ -369,7 +369,7 @@ view: superstore_datasets {
     sql: case when ${profit} <= 74 then "Gagal"end  ;;
     link: {
       label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/30"
     }
   }
   dimension: status_akhir {
