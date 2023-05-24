@@ -354,4 +354,27 @@ view: superstore_datasets {
       end;;
   }
 
+
+  dimension: Status_Berhasil {
+    type: number
+    sql: case when ${profit} >=75 then "Berhasil"end  ;;
+  link: {
+    label: "Status Total Provit"
+    url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+  }
+}
+
+  dimension: Status_Gagal {
+    type: number
+    sql: case when ${profit} <= 74 then "Gagal"end  ;;
+    link: {
+      label: "Status Total Provit"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+    }
+  }
+  dimension: status_akhir {
+    type: string
+    sql: case when Status_Berhasil = "Berhasil" then "success"
+    else ${Status_Gagal} = "Gagal" end;;
+  }
 }
