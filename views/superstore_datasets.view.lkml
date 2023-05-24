@@ -227,7 +227,8 @@ view: superstore_datasets {
     label: "Status Total Provit"
     url:"https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY=${country}&YEAR="
   }
-    ELSE 2;;
+    ELSE 2
+    END;;
   }
 
 
