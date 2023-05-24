@@ -223,10 +223,7 @@ view: superstore_datasets {
   dimension: cities_liquid {
     type: string
     html: {% if value == 'Frankfurt' %}
-    link: {
-    label: "CITIES"
-    url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
-    }
+    [city_with_liquid]
     {% else %}
     link: {
       label: "CITYES"
