@@ -222,12 +222,12 @@ view: superstore_datasets {
 
   dimension: cities_liquid {
     type: string
-    html: {% if value == 'France' %}
-    [city_with_liquid]
-    {% else %}
-    [ship_mode]
-      {% endif %};;
-    sql: ${region} ;;
+    link: {
+
+      label: "Status Total Provit"
+      url:"[== 'France'] https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+    }
+    sql: ${country} ;;
   }
 
 
