@@ -347,10 +347,8 @@ view: superstore_datasets {
 
   dimension: Status {
     type: string
-    sql: case when ${TABLE}.profit > 75 then "success"
-      when ${TABLE}.profit < 74 then "Fail"
-      when ${TABLE}.profit = 75 then "success"
-      when ${TABLE}.profit = 74 then "Fail"
+    sql: case when ${TABLE}.profit >= 75 then "success"
+      when ${TABLE}.profit <= 74 then "Fail"
       end;;
   }
 
