@@ -344,10 +344,14 @@ view: superstore_datasets {
     type: date
     sql: MAX(${order_date}) ;;
   }
+
   dimension: Status {
     type: string
-    sql: case when ${TABLE}.profit >= 75 then "success"
-      when ${TABLE}.profit <= 74 then "Fail" end;;
+    sql: case when ${TABLE}.profit > 75 then "success"
+      when ${TABLE}.profit < 74 then "Fail"
+      when ${TABLE}.profit = 75 then "success"
+      when ${TABLE}.profit = 74 then "Fail"
+      end;;
   }
 
 }
