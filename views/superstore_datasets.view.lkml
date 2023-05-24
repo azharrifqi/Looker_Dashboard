@@ -219,11 +219,6 @@ view: superstore_datasets {
     sql: ${city} ;;
   }
 
-  dimension: Cstatus {
-    type: string
-    sql: case when ${Status} = "success" then city_with_liquid end   ;;
-  }
-
   dimension: numb {
     type:  number
     sql: CASE WHEN ${country} = "France" THEN 1
