@@ -219,16 +219,28 @@ view: superstore_datasets {
     sql: ${city} ;;
   }
 
-
-  dimension: cities_liquid {
-    type: string
+  dimension: numb {
+    type:  number
+    sql: CASE WHEN ${country} = "France" THEN
     link: {
 
-      label: "Status Total Provit"
-      url:"[== 'France'] https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
-    }
-    sql: ${country} ;;
+    label: "Status Total Provit"
+    url:"https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY=${country}&YEAR="
   }
+    ELSE 2;;
+  }
+
+
+  # dimension: cities_liquid {
+  #   type: number
+  #   {% if ${numb} == t %}
+  #   link: {
+
+  #     label: "Status Total Provit"
+  #     url:"https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+  #   }
+  #   sql: ${numb} ;;
+  # }
 
 
   measure: mtotal_gmv {
