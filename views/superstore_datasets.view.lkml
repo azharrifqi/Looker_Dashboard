@@ -374,7 +374,7 @@ view: superstore_datasets {
   }
   dimension: status_akhir {
     type: string
-    sql: case when ${Status_Berhasil} = "Berhasil" then "success"
-    else ${Status_Gagal} = "Gagal" end;;
+    sql: case when ${Status_Berhasil} = 1 then "success"
+    when ${Status_Gagal} = 0 then "Fail" end;;
   }
 }
