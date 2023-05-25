@@ -354,7 +354,7 @@ view: superstore_datasets {
       end;;
     link: {
       label: "Status Total Provit Success"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status=success"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status={{value}}"
     }
   }
 
