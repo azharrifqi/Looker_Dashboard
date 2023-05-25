@@ -46,3 +46,6 @@ explore: checkg {}
 explore: status_success {
   sql_always_where: ${Status}="success";;
 }
+explore: status_fail {
+  sql_always_where: ${Status}="Fail";;
+}
