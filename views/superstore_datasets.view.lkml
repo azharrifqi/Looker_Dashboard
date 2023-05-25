@@ -342,10 +342,6 @@ view: superstore_datasets {
     map_layer_name: uk_postcode_areas
     sql: ${city} ;;
   }
-  measure: last_update {
-    type: date
-    sql: MAX(${order_date}) ;;
-  }
 
   dimension: Status {
     type: string
@@ -354,31 +350,8 @@ view: superstore_datasets {
       end;;
     link: {
       label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status={{value}}"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status=success"
     }
   }
 
-
-  dimension: Status_Berhasil {
-    type: number
-    sql: case when ${profit} >=75 then 1 end  ;;
-  link: {
-    label: "Status Total Provit"
-    url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
-  }
-}
-
-  dimension: Status_Gagal {
-    type: number
-    sql: case when ${profit} <= 74 then 0 end  ;;
-    link: {
-      label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/30"
-    }
-  }
-  dimension: status_akhir {
-    type: string
-    sql: case when ${Status_Berhasil} = 1 then ${Status_Berhasil}
-    when ${Status_Gagal} = 0 then ${Status_Gagal} end;;
-  }
 }
