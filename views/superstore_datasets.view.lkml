@@ -214,12 +214,12 @@ view: superstore_datasets {
     type: string
     sql: ${city} ;;
     link: {
-      label: "Fail"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
-    }
-    link: {
       label: "success"
       url: "https://datalabs.cloud.looker.com/embed/dashboards/34"
+    }
+    link: {
+      label: "Fail"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
     }
   }
 
