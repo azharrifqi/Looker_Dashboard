@@ -216,10 +216,12 @@ view: superstore_datasets {
     link: {
       label: "success"
       url: "https://datalabs.cloud.looker.com/embed/dashboards/34"
+      icon_url: "https://cdn.iconscout.com/icon/free/png-512/free-check-verified-successful-accept-tick-yes-success-2516.png?f=avif&w=256"
     }
     link: {
       label: "Fail"
       url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
+      icon_url: "https://cdn.iconscout.com/icon/premium/png-512-thumb/fail-5156466-4302609.png?f=avif&w=256"
     }
   }
 
