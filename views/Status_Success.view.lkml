@@ -13,6 +13,10 @@ view: status_success {
     type: number
     sql: ${TABLE}.gmv ;;
   }
+  dimension: city {
+    type: string
+    sql: ${TABLE}.city ;;
+  }
   dimension: Status {
     type: string
     sql: case when ${TABLE}.profit >= 75 then "success"
