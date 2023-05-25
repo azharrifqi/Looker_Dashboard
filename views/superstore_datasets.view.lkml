@@ -196,7 +196,7 @@ view: superstore_datasets {
 
   measure: mtotal_profit {
     type: sum
-    drill_fields: [region, country, city_with_liquid,Status, mtotal_profit]
+    drill_fields: [region, country, city_with_liquid, mtotal_profit]
     sql: ${total_profit} ;;
   }
 
@@ -212,11 +212,15 @@ view: superstore_datasets {
 
   dimension: city_with_liquid {
     type: string
+    sql: ${city} ;;
     link: {
-      label: "Status Total Provit"
+      label: "Fail"
       url: "https://datalabs.cloud.looker.com/embed/dashboards/14?MONTH=&CITY={{value}}&YEAR="
     }
-    sql: ${city} ;;
+    link: {
+      label: "success"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/34"
+    }
   }
 
   dimension: numb {
@@ -348,10 +352,7 @@ view: superstore_datasets {
     sql: case when ${TABLE}.profit >= 75 then "success"
       when ${TABLE}.profit <= 74 then "Fail"
       end;;
-    link: {
-      label: "Status Total Provit"
-      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status=success"
-    }
+
   }
 
 }
