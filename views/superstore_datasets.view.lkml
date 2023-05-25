@@ -352,6 +352,10 @@ view: superstore_datasets {
     sql: case when ${TABLE}.profit >= 75 then "success"
       when ${TABLE}.profit <= 74 then "Fail"
       end;;
+    link: {
+      label: "Status Total Provit Success"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status=success"
+    }
   }
 
 
