@@ -44,9 +44,7 @@ explore: order_details {}
 explore: order_list {}
 explore: checkg {}
 explore: status_success {
-conditionally_filter: {
-  filters: [
-    status_success.Status: "success"
-  ]
+always_filter: {
+  filters: [status_success.category: "Technology"]
 }
 }
