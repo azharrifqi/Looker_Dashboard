@@ -44,7 +44,5 @@ explore: order_details {}
 explore: order_list {}
 explore: checkg {}
 explore: status_success {
-always_filter: {
-  filters: [status_success.category: "Technology"]
-}
+  sql_always_where: ${Status}="success";;
 }
