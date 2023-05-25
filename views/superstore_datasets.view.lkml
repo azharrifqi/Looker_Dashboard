@@ -353,7 +353,7 @@ view: superstore_datasets {
       when ${TABLE}.profit <= 74 then "Fail"
       end;;
     link: {
-      label: "Status Total Provit Success"
+      label: "Status Total Provit"
       url: "https://datalabs.cloud.looker.com/embed/dashboards/34?Status={{value}}"
     }
   }
