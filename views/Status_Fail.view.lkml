@@ -73,5 +73,9 @@ view: status_fail {
     type: string
     sql: ${TABLE}.customer_name ;;
   }
+  measure: Total_Order {
+    type: count_distinct
+    sql: ${TABLE}.order_id ;;
+  }
 
 }
