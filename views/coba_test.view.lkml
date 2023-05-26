@@ -70,4 +70,21 @@ measure: total {
     value_format: "YYYYMMM"
     sql: MAX(${Date_date}) ;;
   }
+  measure: total_revenue {
+    type: number
+    sql: ${TABLE}.total_revenue ;;
+  }
+  measure: min_total_revenue {
+    type: number
+    sql: min(${total_revenue}) ;;
+  }
+  measure: max_total_revenue {
+    type: number
+    sql: max(${total_revenue}) ;;
+  }
+  measure: man_total_revenue {
+    type: number
+    sql: min(${total_revenue}) ;;
+  }
+
 }
