@@ -77,5 +77,8 @@ view: status_fail {
     type: count_distinct
     sql: ${TABLE}.order_id ;;
   }
-
+  measure: Total_Ship_Mode {
+    type: count_distinct
+    sql: ${ship_mode} ;;
+  }
 }
