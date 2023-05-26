@@ -1,9 +1,6 @@
 view: checkg {
   derived_table: {
     sql: SELECT * FROM  dwh_dla_acl.customers_360_datasets a
-    join status_Fail b
-    ON a.city = b.city
-    WHERE city = Status_Fail.city
     ;;
   }
 
