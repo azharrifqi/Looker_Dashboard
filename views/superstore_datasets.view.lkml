@@ -232,6 +232,9 @@ view: superstore_datasets {
     END;;
   }
 
+  parameter: selected {
+    required_fields: [cities_liquid]
+  }
 
   dimension: cities_liquid {
     type: number

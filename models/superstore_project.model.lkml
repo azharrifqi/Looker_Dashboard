@@ -42,7 +42,13 @@ explore: test {}
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}
-explore: checkg {}
+explore: checkg {
+  join: status_fail {
+    type: left_outer
+    relationship: many_to_many
+    sql_on: ${checkg.city} = ${status_fail.city} ;;
+  }
+}
 explore: status_success {
   sql_always_where: ${Status}="success";;
 }
