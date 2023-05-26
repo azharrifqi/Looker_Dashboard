@@ -45,7 +45,7 @@ explore: order_list {}
 explore: checkg {
   join: status_fail {
     type: left_outer
-    relationship: one_to_one
+    relationship: many_to_many
     sql_on: ${checkg.city} = ${status_fail.city} ;;
   }
 }
