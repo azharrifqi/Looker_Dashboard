@@ -1,7 +1,10 @@
 view: checkg {
   derived_table: {
-    sql: SELECT * FROM  dwh_dla_acl.customers_360_datasets
-    WHERE city = Status_Fail.city;;
+    sql: SELECT * FROM  dwh_dla_acl.customers_360_datasets a
+    join status_Fail b
+    ON a.city = b.city
+    WHERE city = Status_Fail.city
+    ;;
   }
 
   dimension: category {
