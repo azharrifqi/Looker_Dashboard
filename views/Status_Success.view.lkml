@@ -39,4 +39,45 @@ view: status_success {
     type: sum
     sql: ${mtotal_profit} ;;
   }
+  dimension: cost {
+    type: number
+    sql: ${TABLE}.cost ;;
+  }
+
+  measure: total_cost {
+    type: sum
+    sql: ${cost} ;;
+  }
+
+  dimension: sub_category {
+    type: string
+    sql: ${TABLE}.sub_category ;;
+  }
+  dimension: ship_mode {
+    type: string
+    sql: ${TABLE}.ship_mode ;;
+  }
+  dimension_group: ship {
+    type: time
+    timeframes: [
+      date,
+      month,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.ship_date ;;
+  }
+  dimension: Customer_Name {
+    type: string
+    sql: ${TABLE}.customer_name ;;
+  }
+  measure: Total_Order {
+    type: count_distinct
+    sql: ${TABLE}.order_id ;;
+  }
+  measure: Total_Ship_Mode {
+    type: count_distinct
+    sql: ${ship_mode} ;;
+  }
  }
