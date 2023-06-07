@@ -181,6 +181,13 @@ view: test {
     sql: sum(${mtotal_profit}) over() ;;
   }
 
+  measure: show_total_not_over {
+    type: number
+    label: "Total Profit"
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+    sql: sum(${mtotal_profit}) ;;
+  }
+
   measure: show_profit {
     type: number
     label: "Profit"
