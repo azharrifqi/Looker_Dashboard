@@ -314,7 +314,7 @@ view: test {
 
   measure: percentage {
     type: number
-    sql: ${profit}/${mtotal_profit} ;;
+    sql: ${profit}/${total_profit} ;;
   }
 
 }
