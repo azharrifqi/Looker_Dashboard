@@ -185,7 +185,7 @@ view: test {
     type: number
     label: "Total Profit"
     value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
-    sql: sum(${mtotal_profit}) ;;
+    sql: sum(${total_profit}) ;;
   }
 
   measure: show_profit {
