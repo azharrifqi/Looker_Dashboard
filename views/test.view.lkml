@@ -176,14 +176,16 @@ view: test {
 
   measure: show_total {
     type: number
+    label: "Total Profit"
     value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     sql: sum(${mtotal_profit}) over() ;;
   }
 
   measure: show_profit {
     type: number
+    label: "Profit"
     value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
-    sql: sum(${profit}) over() ;;
+    sql: sum(${profit});;
   }
 
   measure: count {
@@ -321,7 +323,7 @@ view: test {
   measure: percentage {
     type: number
     sql: (sum(${profit})/SUM(${total_profit}))*100 ;;
-    drill_fields: [country, show_profit]
+    drill_fields: [country, show_profit, show_total]
   }
 
 }
