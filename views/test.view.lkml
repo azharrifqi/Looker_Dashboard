@@ -180,6 +180,12 @@ view: test {
     sql: sum(${mtotal_profit}) over() ;;
   }
 
+  measure: show_profit {
+    type: number
+    value_format: "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
+    sql: sum(${profit}) over() ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [region, ship_mode, mtotal_profit]
@@ -315,7 +321,7 @@ view: test {
   measure: percentage {
     type: number
     sql: (sum(${profit})/SUM(${total_profit}))*100 ;;
-    drill_fields: [countries]
+    drill_fields: [country, show_total,show_profit]
   }
 
 }
