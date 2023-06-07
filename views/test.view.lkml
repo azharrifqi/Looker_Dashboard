@@ -312,4 +312,9 @@ view: test {
     sql: ${total_profit} ;;
   }
 
+  measure: percentage {
+    type: number
+    sql: ${profit}/${mtotal_profit} ;;
+  }
+
 }
