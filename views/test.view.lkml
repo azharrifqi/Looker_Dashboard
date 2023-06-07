@@ -203,7 +203,7 @@ view: test {
   measure: mtotal_profit {
     type: sum
     sql: ${total_profit} ;;
-    drill_fields: [category, region, ship_mode, mtotal_profit]
+    drill_fields: [category, region, country, ship_mode, mtotal_profit]
   }
 
   measure: mtotal_gmv {
