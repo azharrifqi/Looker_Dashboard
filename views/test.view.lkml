@@ -315,6 +315,7 @@ view: test {
   measure: percentage {
     type: number
     sql: (sum(${profit})/SUM(${total_profit}))*100 ;;
+    drill_fields: [countries]
   }
 
 }
