@@ -365,4 +365,18 @@ view: test {
     drill_fields: [country, show_profit, show_total_not_over]
   }
 
+  measure: test_action_measure {
+    action: {
+      label: "Action"
+      url: "https://hooks.zapier.com/hooks/catch/15553329/3h99xvt/"
+      icon_url: "https://looker.com/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      param: {
+        name: "name string"
+        value: "value string"
+      }
+    }
+    sql: ${Test}>100 ;;
+  }
+
 }
