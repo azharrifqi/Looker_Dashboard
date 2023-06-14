@@ -78,6 +78,7 @@ view: test {
         name: "name_for_json_payload"
       }
     }
+    sql: ${country} ;;
   }
 
 
