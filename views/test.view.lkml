@@ -377,7 +377,7 @@ view: test {
       }
       form_param: {
         name: "name string"
-        type: string
+        type: select
         label: "possibly-localized-string"
         option: {
           name: "name string"
