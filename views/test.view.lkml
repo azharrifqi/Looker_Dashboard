@@ -373,10 +373,26 @@ view: test {
       form_url: "https://example.com/ping/{{ value }}/form.json"
       param: {
         name: "name string"
-        value: ""
+        value: "value string"
+      }
+      form_param: {
+        name: "name string"
+        type: string
+        label: "possibly-localized-string"
+        option: {
+          name: "name string"
+          label: "possibly-localized-string"
+        }
+        required: no
+        description: "possibly-localized-string"
+        default: "string"
+      }
+      user_attribute_param: {
+        user_attribute: country
+        name: "name_for_json_payload"
       }
     }
-    sql: ${Test};;
+    sql: ${Test} ;;
   }
 
 }
