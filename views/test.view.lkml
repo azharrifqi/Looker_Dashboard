@@ -51,6 +51,36 @@ view: test {
     sql: ${TABLE}.country ;;
   }
 
+  dimension: country_action {
+    action: {
+      label: "Action"
+      url: "https://example.com/posts"
+      icon_url: "https://looker.com/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      param: {
+        name: "name string"
+        value: "value string"
+      }
+      form_param: {
+        name: "name string"
+        type: string
+        label: "possibly-localized-string"
+        option: {
+          name: "name string"
+          label: "possibly-localized-string"
+        }
+        required: no
+        description: "possibly-localized-string"
+        default: "string"
+      }
+      user_attribute_param: {
+        user_attribute: country
+        name: "name_for_json_payload"
+      }
+    }
+  }
+
+
   dimension: countries {
     type: string
     map_layer_name: countries
