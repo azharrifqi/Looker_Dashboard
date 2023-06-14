@@ -54,7 +54,7 @@ view: test {
   dimension: country_action {
     action: {
       label: "Action"
-      url: "https://example.com/posts"
+      url: "https://hooks.zapier.com/hooks/catch/15553329/3h99xvt/"
       icon_url: "https://looker.com/favicon.ico"
       form_url: "https://example.com/ping/{{ value }}/form.json"
       param: {
