@@ -373,10 +373,10 @@ view: test {
       form_url: "https://example.com/ping/{{ value }}/form.json"
       param: {
         name: "name string"
-        value: "value string"
+        value: ""
       }
     }
-    sql: ${Test}>100 ;;
+    sql: ${Test}<100 ;;
   }
 
 }
