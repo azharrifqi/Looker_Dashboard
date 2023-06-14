@@ -376,7 +376,7 @@ view: test {
         value: ""
       }
     }
-    sql: ${Test}<100 ;;
+    sql: ${Test};;
   }
 
 }
