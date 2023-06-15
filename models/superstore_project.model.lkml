@@ -38,7 +38,9 @@ explore: superstore_datasets {
   }
 }
 
-explore: test {}
+explore: test {
+  sql_always_where: SUM(${cost}) >= 50 ;;
+}
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}
