@@ -51,6 +51,37 @@ view: test {
     sql: ${TABLE}.country ;;
   }
 
+  dimension: country_action {
+    action: {
+      label: "Action"
+      url: "https://hooks.zapier.com/hooks/catch/15553329/3h99xvt/"
+      icon_url: "https://looker.com/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      param: {
+        name: "name string"
+        value: "value string"
+      }
+      form_param: {
+        name: "name string"
+        type: string
+        label: "possibly-localized-string"
+        option: {
+          name: "name string"
+          label: "possibly-localized-string"
+        }
+        required: no
+        description: "possibly-localized-string"
+        default: "string"
+      }
+      user_attribute_param: {
+        user_attribute: country
+        name: "name_for_json_payload"
+      }
+    }
+    sql: ${country} ;;
+  }
+
+
   dimension: countries {
     type: string
     map_layer_name: countries
@@ -332,6 +363,36 @@ view: test {
     type: number
     sql: (sum(${profit})/SUM(${total_profit}))*100 ;;
     drill_fields: [country, show_profit, show_total_not_over]
+  }
+
+  measure: test_action_measure {
+    action: {
+      label: "Action"
+      url: "https://hooks.zapier.com/hooks/catch/15553329/3h99xvt/"
+      icon_url: "https://looker.com/favicon.ico"
+      form_url: "https://example.com/ping/{{ value }}/form.json"
+      param: {
+        name: "name string"
+        value: "value string"
+      }
+      form_param: {
+        name: "name string"
+        type: select
+        label: "possibly-localized-string"
+        option: {
+          name: "name string"
+          label: "possibly-localized-string"
+        }
+        required: no
+        description: "possibly-localized-string"
+        default: "string"
+      }
+      user_attribute_param: {
+        user_attribute: country
+        name: "name_for_json_payload"
+      }
+    }
+    sql: ${Test} ;;
   }
 
 }
