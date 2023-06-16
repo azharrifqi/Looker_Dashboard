@@ -39,7 +39,9 @@ explore: superstore_datasets {
 }
 
 explore: test {
-  sql_always_where: [total_cost] >= 100 ;;
+  always_filter: {
+    filters: [total_cost : ">=50"]
+  }
 }
 explore: coba_test {}
 explore: order_details {}
