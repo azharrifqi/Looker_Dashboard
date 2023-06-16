@@ -359,5 +359,9 @@ view: superstore_datasets {
       end;;
 
   }
+  measure: jumal_order {
+    type: count_distinct
+    sql: ${TABLE}.order_id ;;
+  }
 
 }
