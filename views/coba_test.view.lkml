@@ -27,6 +27,10 @@ dimension: Kelompok_Usia {
   WHEN customer_age >= 51 then "LANSIA"
   END
   ;;
+  action: {
+    label: "test"
+    url: "https://hooks.zapier.com/hooks/catch/15647510/3hic4fv/"
+  }
 }
 
 measure: coba {
