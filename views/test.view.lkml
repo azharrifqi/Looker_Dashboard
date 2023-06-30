@@ -78,6 +78,11 @@ view: test {
         name: "name_for_json_payload"
       }
     }
+    link: {
+      label: "success"
+      url: "https://datalabs.cloud.looker.com/embed/dashboards/34?City={{value}}"
+      icon_url: "https://cdn.iconscout.com/icon/free/png-512/free-check-verified-successful-accept-tick-yes-success-2516.png?f=avif&w=256"
+    }
     sql: ${country} ;;
   }
 
