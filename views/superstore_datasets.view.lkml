@@ -364,4 +364,9 @@ view: superstore_datasets {
     sql: ${TABLE}.order_id ;;
   }
 
+  measure: jumlah_order {
+    type: count_distinct
+    sql: ${TABLE}.order_id ;;
+  }
+
 }

@@ -38,7 +38,11 @@ explore: superstore_datasets {
   }
 }
 
-explore: test {}
+explore: test {
+  always_filter: {
+    filters: [total_cost : ">=50"]
+  }
+}
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}

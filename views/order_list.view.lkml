@@ -10,4 +10,10 @@ dimension: Customer_name {
   type: string
   sql: ${TABLE}.customer_name ;;
 }
+
+
+  dimension: sdwa {
+    type: string
+    sql: ${TABLE}.customer_name ;;
+  }
 }
