@@ -39,4 +39,14 @@ view: checkg {
     type: sum
     sql: ${mtotal_profit} ;;
   }
+  # dimension: Status {
+  #   type: string
+  #   sql: case when ${TABLE}.profit >= 75 then "success"
+  #     when ${TABLE}.profit <= 74 then "Fail"
+  #     end;;
+  # }
+  dimension: sub_category {
+    type: string
+    sql: status_fail.sub_category ;;
+  }
 }

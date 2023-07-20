@@ -8,7 +8,7 @@ include: "/views/**/*.view"
 # use the Quick Help panel on the right to see documentation.
 
 datagroup: superstore_project_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
@@ -51,6 +51,12 @@ explore: checkg {
     type: left_outer
     relationship: many_to_many
     sql_on: ${checkg.city} = ${status_fail.city} ;;
+  }
+  join: status_success {
+    type: left_outer
+    relationship: many_to_many
+    sql_on: select * FROM order_list join order_details
+    on order_list.id = order_details.id;;
   }
 }
 explore: status_success {

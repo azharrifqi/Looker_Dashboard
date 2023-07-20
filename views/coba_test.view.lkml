@@ -90,5 +90,12 @@ measure: total {
     type: number
     sql: min(${total_revenue}) ;;
   }
-
+  dimension: tes {
+    type: number
+    sql: CASE WHEN ${TABLE}.customer_age is not NULL THEN "REMAJA"
+        WHEN customer_age BETWEEN 26 AND 50 then "DEWASA"
+        WHEN customer_age >= 51 then "LANSIA"
+        END
+        ;;
+  }
 }
