@@ -31,10 +31,10 @@ persist_with: superstore_project_default_datagroup
 # Each joined view also needs to define a primary key.
 
 explore: superstore_datasets {
+  persist_with: superstore_project_default_datagroup
   access_filter: {
     field: superstore_datasets.country
     user_attribute: country
-
   }
 }
 
