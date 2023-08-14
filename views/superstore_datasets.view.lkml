@@ -93,6 +93,14 @@ view: superstore_datasets {
     sql: ${TABLE}.order_date ;;
   }
 
+  dimension: month_format {
+    group_label: "Created date"
+    label: "Date"
+    type: date_raw
+    sql: ${order_date} ;;
+    html: {{ rendered_value | date: "%B" }};;
+  }
+
   dimension: order_id {
     type: string
     sql: ${TABLE}.order_id ;;
@@ -118,6 +126,15 @@ view: superstore_datasets {
     sql: ${TABLE}.segment ;;
   }
 
+  dimension: regiongroup {
+    type: string
+    sql: CASE
+            WHEN ${TABLE}.region in ('Central', 'North') THEN 'A'
+            WHEN ${TABLE}.region in ('Central', 'South') THEN 'B'
+        END;;
+
+  }
+
   dimension_group: ship {
     type: time
     timeframes: [
@@ -133,6 +150,18 @@ view: superstore_datasets {
     sql: ${TABLE}.ship_date ;;
   }
 
+
+  parameter: region_param {
+    type: unquoted
+    allowed_value: {
+      label: "Central"
+      value: "Central"
+    }
+    allowed_value: {
+      label: "North"
+      value: "North"
+    }
+  }
 
   parameter: item_to_add_up {
     type: unquoted
