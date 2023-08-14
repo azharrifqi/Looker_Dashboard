@@ -65,6 +65,11 @@ view: superstore_datasets {
     sql: ${TABLE}.lat ;;
   }
 
+  measure: test {
+    type: number
+    sql: SUM(${total_profit})/COUNT_DISTINCT(${order_month}) ;;
+  }
+
   dimension: lon {
     type: number
     sql: ${TABLE}.lon ;;
