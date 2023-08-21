@@ -397,13 +397,13 @@ view: superstore_datasets {
     sql: ${days_until_next_order} <= 2 ;;
   }
 
-  dimension: repeat_orders_within_15d{
+  dimension: repeat_orders_within_6m{
     label: "Repeat Orders within 6 Month"
     type: yesno
     sql:  ${days_until_next_order} <= 6;;
   }
 
-  measure: count_with_repeat_purchase_within_30d {
+  measure: count_with_repeat_purchase_within_60d {
     label: "Count with Repeat Purchase within 2 Month"
     type: sum
     sql: ${TABLE}.total_profit ;;
@@ -414,6 +414,15 @@ view: superstore_datasets {
       value: "Yes"
     }
   }
+
+### ===== ###
+
+
+### Test Param ###
+
+
+
+
 
 ### ===== ###
 
