@@ -391,7 +391,7 @@ view: superstore_datasets {
   # }
 
   dimension: days_until_next_order {
-    label: "Days Until Next Order"
+    label: "Month Until Next Order"
     type: number
     # view_label: "Repeat Purchase Facts"
     sql: EXTRACT(MONTH FROM current_date())-EXTRACT(MONTH FROM ${order_date}) ;;
