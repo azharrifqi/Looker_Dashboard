@@ -435,8 +435,8 @@ view: superstore_datasets {
   dimension: year {
     type: string
     sql: CASE
-            WHEN ${paramyear} = ${order_year} THEN ${paramyear}
-            WHEN ${paramyear}-1 = ${order_year} THEN ${paramyear}-1
+            WHEN {% parameter paramyear %} = ${order_year} THEN {% parameter paramyear %}
+            WHEN {% parameter paramyear %}-1 = ${order_year} THEN {% parameter paramyear %}-1
           END;;
   }
 
