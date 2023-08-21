@@ -386,14 +386,14 @@ view: superstore_datasets {
   dimension: days_until_next_order {
     label: "Days Until Next Order"
     type: number
-    view_label: "Repeat Purchase Facts"
+    # view_label: "Repeat Purchase Facts"
     sql: TIMESTAMP_DIFF(${order_date},${ship_date}, MONTH) ;;
   }
 
   dimension: repeat_orders_within_60d {
     label: "Repeat Orders within 2 Month"
     type: yesno
-    view_label: "Repeat Purchase Facts"
+    # view_label: "Repeat Purchase Facts"
     sql: ${days_until_next_order} <= 2 ;;
   }
 
@@ -407,7 +407,7 @@ view: superstore_datasets {
     label: "Count with Repeat Purchase within 2 Month"
     type: sum
     sql: ${TABLE}.total_profit ;;
-    view_label: "Repeat Purchase Facts"
+    # view_label: "Repeat Purchase Facts"
 
     filters: {
       field: repeat_orders_within_60d
