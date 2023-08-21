@@ -420,8 +420,25 @@ view: superstore_datasets {
 
 ### Test Param ###
 
+  parameter: paramyear {
+    type: unquoted
+    allowed_value: {
+      label: "2014"
+      value: "2014"
+    }
+    allowed_value: {
+      label: "2013"
+      value: "2013"
+    }
+  }
 
-
+  dimension: year {
+    type: string
+    sql: CASE
+            WHEN ${paramyear} = ${order_year} THEN ${paramyear}
+            WHEN ${paramyear}-1 = ${order_year} THEN ${paramyear}-1
+          END;;
+  }
 
 
 ### ===== ###
