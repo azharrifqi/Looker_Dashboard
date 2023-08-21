@@ -402,7 +402,7 @@ view: superstore_datasets {
     label: "Repeat Orders within 2 Month"
     type: yesno
     # view_label: "Repeat Purchase Facts"
-    sql: ${days_until_next_order} <= 2 ;;
+    sql: ${days_until_next_order} <= 2 AND ${days_until_next_order} >= 0;;
   }
 
   dimension: repeat_orders_within_6m{
