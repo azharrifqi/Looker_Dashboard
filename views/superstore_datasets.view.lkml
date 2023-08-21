@@ -387,7 +387,7 @@ view: superstore_datasets {
     label: "Days Until Next Order"
     type: number
     # view_label: "Repeat Purchase Facts"
-    sql: TIMESTAMP_DIFF(${order_date},${ship_date}, MONTH) ;;
+    sql: TIMESTAMP_DIFF(${order_date},current_date(), MONTH) ;;
   }
 
   dimension: repeat_orders_within_60d {
