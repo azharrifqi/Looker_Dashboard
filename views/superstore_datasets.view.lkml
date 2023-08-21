@@ -383,11 +383,19 @@ view: superstore_datasets {
 
 ### TEST 2 Month ###
 
+  # dimension: days_until_next_order {
+  #   label: "Days Until Next Order"
+  #   type: number
+  #   # view_label: "Repeat Purchase Facts"
+  #   sql: TIMESTAMP_DIFF(${order_date},current_date(), MONTH) ;;
+  # }
+
   dimension: days_until_next_order {
     label: "Days Until Next Order"
     type: number
     # view_label: "Repeat Purchase Facts"
-    sql: TIMESTAMP_DIFF(${order_date},current_date(), MONTH) ;;
+    sql: EXTRACT(MONTH FROM ${order_date})-EXTRACT(MONTH FROM current_date()) ;;
+
   }
 
   dimension: repeat_orders_within_60d {
@@ -430,6 +438,13 @@ view: superstore_datasets {
       label: "2013"
       value: "2013"
     }
+  }
+
+  dimension: paramyear_2_year{
+    label: "Year"
+    type: yesno
+    # view_label: "Repeat Purchase Facts"
+    sql: ${year} Is NOT NULL ;;
   }
 
   dimension: year {
