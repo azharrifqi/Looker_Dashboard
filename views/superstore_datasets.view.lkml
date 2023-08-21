@@ -434,8 +434,10 @@ view: superstore_datasets {
 
   dimension: year {
     type: string
-    sql:{% parameter paramyear %} = ${order_year} THEN {% parameter paramyear %}
-        ,{% parameter paramyear %}-1 = ${order_year} THEN {% parameter paramyear %}-1;;
+    sql: CASE
+            WHEN {% parameter paramyear %} = ${order_year} THEN {% parameter paramyear %}
+            WHEN {% parameter paramyear %}-1 = ${order_year} THEN {% parameter paramyear %}-1
+          END;;
   }
 
 
