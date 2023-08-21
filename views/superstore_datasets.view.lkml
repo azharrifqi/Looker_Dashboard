@@ -381,6 +381,42 @@ view: superstore_datasets {
     <div>;;
   }
 
+### TEST 2 Month ###
+
+  dimension: days_until_next_order {
+    label: "Days Until Next Order"
+    type: number
+    view_label: "Repeat Purchase Facts"
+    sql: TIMESTAMP_DIFF(${order_date},${ship_date}, MONTH) ;;
+  }
+
+  dimension: repeat_orders_within_60d {
+    label: "Repeat Orders within 2 Month"
+    type: yesno
+    view_label: "Repeat Purchase Facts"
+    sql: ${days_until_next_order} <= 2 ;;
+  }
+
+  dimension: repeat_orders_within_15d{
+    label: "Repeat Orders within 6 Month"
+    type: yesno
+    sql:  ${days_until_next_order} <= 6;;
+  }
+
+  measure: count_with_repeat_purchase_within_30d {
+    label: "Count with Repeat Purchase within 2 Month"
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+    view_label: "Repeat Purchase Facts"
+
+    filters: {
+      field: repeat_orders_within_60d
+      value: "Yes"
+    }
+  }
+
+### ===== ###
+
   dimension: area {
     map_layer_name: uk_postcode_areas
     sql: ${city} ;;
