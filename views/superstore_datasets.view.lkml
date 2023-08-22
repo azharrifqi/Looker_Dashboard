@@ -402,13 +402,6 @@ view: superstore_datasets {
     }
   }
 
-  dimension: filter_param2m {
-    # label: "Month Until Next Order"
-    type: string
-    # view_label: "Repeat Purchase Facts"
-    sql: {% parameter param2m %} ;;
-  }
-
   dimension: days_until_next_order {
     label: "Month Until Next Order"
     type: number
@@ -436,9 +429,28 @@ view: superstore_datasets {
     # view_label: "Repeat Purchase Facts"
 
     filters: {
-      field: filter_param2m
+      field: repeat_orders_within_60d
       value: "Yes"
     }
+  }
+
+  measure: count_with_repeat_purchase_within_6m {
+    label: "Count with Repeat Purchase within 6 Month"
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+    # view_label: "Repeat Purchase Facts"
+
+    filters: {
+      field: repeat_orders_within_6m
+      value: "Yes"
+    }
+  }
+
+  measure: Sum2M {
+    label: "Sum 2 Month"
+    type: sum
+    sql: {% parameter paam2m %} ;;
+    # value_format_name: "usd"
   }
 
 ### ===== ###
