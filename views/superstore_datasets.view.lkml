@@ -436,7 +436,7 @@ view: superstore_datasets {
     # view_label: "Repeat Purchase Facts"
 
     filters: {
-      field: param2m
+      field: filter_param2m
       value: "Yes"
     }
   }
