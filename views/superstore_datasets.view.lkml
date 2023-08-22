@@ -448,8 +448,11 @@ view: superstore_datasets {
 
   measure: Sum2M {
     label: "Sum 2 Month"
-    type: sum
-    sql: ${% parameter param2m %} ;;
+    type: number
+    sql: CASE
+    WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${count_with_repeat_purchase_within_60d}
+    WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_6m" THEN 30
+    END;;
     # value_format_name: "usd"
   }
 
