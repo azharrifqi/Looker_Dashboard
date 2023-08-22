@@ -391,7 +391,7 @@ view: superstore_datasets {
   # }
 
   parameter: param2m {
-    type: unquoted
+    type: string
     allowed_value: {
       label: "Repeat Orders within 2 Month"
       value: "count_with_repeat_purchase_within_60d"
@@ -450,8 +450,8 @@ view: superstore_datasets {
     label: "Sum 2 Month"
     type: number
     sql: CASE
-    WHEN {% parameter param2m %} = count_with_repeat_purchase_within_60d THEN ${count_with_repeat_purchase_within_60d}
-    WHEN {% parameter param2m %} = count_with_repeat_purchase_within_6m THEN 30
+    WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${count_with_repeat_purchase_within_60d}
+    WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_6m"" THEN 30
     END;;
     # value_format_name: "usd"
   }
