@@ -393,12 +393,12 @@ view: superstore_datasets {
   parameter: param2m {
     type: unquoted
     allowed_value: {
-      label: "Month Until Next Order"
-      value: "repeat_orders_within_60d"
+      label: "Repeat Orders within 2 Month"
+      value: "count_with_repeat_purchase_within_60d"
     }
     allowed_value: {
       label: "Repeat Orders within 6 Month"
-      value: "dimension: repeat_orders_within_6m"
+      value: "count_with_repeat_purchase_within_6m"
     }
   }
 
