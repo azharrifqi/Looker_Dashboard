@@ -33,6 +33,7 @@ view: test01 {
     dimension: sub_category {
       type: string
       sql: ${TABLE}.sub_category ;;
+      primary_key: yes
     }
 
     dimension: Month_order_date {

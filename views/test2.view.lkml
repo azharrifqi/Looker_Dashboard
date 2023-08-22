@@ -11,6 +11,7 @@ view: test2 {
     dimension: sub_category {
       type: string
       sql: ${TABLE}.sub_category ;;
+      primary_key: yes
 
   }
 
