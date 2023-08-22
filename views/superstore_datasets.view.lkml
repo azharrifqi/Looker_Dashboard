@@ -449,7 +449,7 @@ view: superstore_datasets {
   measure: Sum2M {
     label: "Sum 2 Month"
     type: sum
-    sql: {% parameter param2m %} ;;
+    sql: ${TABLE}.{% parameter param2m %} ;;
     # value_format_name: "usd"
   }
 
