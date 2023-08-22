@@ -390,12 +390,30 @@ view: superstore_datasets {
   #   sql: TIMESTAMP_DIFF(${order_date},current_date(), MONTH) ;;
   # }
 
+  parameter: param2m {
+    type: unquoted
+    allowed_value: {
+      label: "Month Until Next Order"
+      value: "repeat_orders_within_60d"
+    }
+    allowed_value: {
+      label: "Repeat Orders within 6 Month"
+      value: "dimension: repeat_orders_within_6m"
+    }
+  }
+
+  dimension: filter_param2m {
+    # label: "Month Until Next Order"
+    type: string
+    # view_label: "Repeat Purchase Facts"
+    sql: {% parameter param2m %} ;;
+  }
+
   dimension: days_until_next_order {
     label: "Month Until Next Order"
     type: number
     # view_label: "Repeat Purchase Facts"
     sql: EXTRACT(MONTH FROM current_date())-EXTRACT(MONTH FROM ${order_date}) ;;
-
   }
 
   dimension: repeat_orders_within_60d {
@@ -418,7 +436,7 @@ view: superstore_datasets {
     # view_label: "Repeat Purchase Facts"
 
     filters: {
-      field: repeat_orders_within_60d
+      field: param2m
       value: "Yes"
     }
   }
