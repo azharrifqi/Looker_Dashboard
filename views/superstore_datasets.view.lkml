@@ -423,7 +423,7 @@ view: superstore_datasets {
   # }
 
   measure: count_with_repeat_purchase_within_60d {
-    label: "Count with Repeat Purchase within 2 Month"
+    # label: "Count with Repeat Purchase within 2 Month"
     type: sum
     sql: ${TABLE}.total_profit ;;
     # view_label: "Repeat Purchase Facts"
