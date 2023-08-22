@@ -416,11 +416,11 @@ view: superstore_datasets {
     sql: ${days_until_next_order} <= 2 AND ${days_until_next_order} >= 0;;
   }
 
-  dimension: repeat_orders_within_6m{
-    label: "Repeat Orders within 6 Month"
-    type: yesno
-    sql:  ${days_until_next_order} <= 6;;
-  }
+  # dimension: repeat_orders_within_6m{
+  #   label: "Repeat Orders within 6 Month"
+  #   type: yesno
+  #   sql:  ${days_until_next_order} <= 6;;
+  # }
 
   measure: count_with_repeat_purchase_within_60d {
     label: "Count with Repeat Purchase within 2 Month"
@@ -434,17 +434,17 @@ view: superstore_datasets {
     }
   }
 
-  measure: count_with_repeat_purchase_within_6m {
-    label: "Count with Repeat Purchase within 6 Month"
-    type: sum
-    sql: ${TABLE}.total_profit ;;
-    # view_label: "Repeat Purchase Facts"
+  # measure: count_with_repeat_purchase_within_6m {
+  #   label: "Count with Repeat Purchase within 6 Month"
+  #   type: sum
+  #   sql: ${TABLE}.total_profit ;;
+  #   # view_label: "Repeat Purchase Facts"
 
-    filters: {
-      field: repeat_orders_within_6m
-      value: "Yes"
-    }
-  }
+  #   filters: {
+  #     field: repeat_orders_within_6m
+  #     value: "Yes"
+  #   }
+  # }
 
   measure: Sum2M {
     label: "Sum 2 Month"
