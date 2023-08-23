@@ -451,7 +451,7 @@ view: superstore_datasets {
     type: number
     sql: CASE
     WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${count_with_repeat_purchase_within_60d}
-    WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_6m" THEN 30
+    WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_6m" THEN ${count_with_repeat_purchase_within_6m}
     END;;
     # value_format_name: "usd"
   }
