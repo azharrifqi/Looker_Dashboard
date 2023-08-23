@@ -539,8 +539,7 @@ view: superstore_datasets {
   set: try_set  {
     fields: [
       region,
-      category,
-      Sum2M
+      category
     ]
   }
 
