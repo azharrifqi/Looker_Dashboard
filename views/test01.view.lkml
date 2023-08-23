@@ -130,5 +130,57 @@ view: test01 {
       value: "count_with_repeat_purchase_within_6m"
     }
   }
+  dimension: days_until_next_order {
+    label: "Month Until Next Order"
+    type: number
+    # view_label: "Repeat Purchase Facts"
+    sql: EXTRACT(MONTH FROM current_date())-EXTRACT(MONTH FROM ${order_date}) ;;
+  }
+  dimension: repeat_orders_within_60d {
+    label: "Repeat Orders within 2 Month"
+    type: yesno
+    # view_label: "Repeat Purchase Facts"
+    sql: ${days_until_next_order} <=1 AND ${days_until_next_order} >= 0;;
+  }
+
+  dimension: repeat_orders_within_6m{
+    label: "Repeat Orders within 6 Month"
+    type: yesno
+    sql:  ${days_until_next_order} <= 2 AND ${days_until_next_order} > 0;;
+  }
+
+  measure: count_with_repeat_purchase_within_60d {
+    # label: "Count with Repeat Purchase within 2 Month"
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+    # view_label: "Repeat Purchase Facts"
+
+    filters: {
+      field: repeat_orders_within_60d
+      value: "Yes"
+    }
+  }
+
+  measure: count_with_repeat_purchase_within_6m {
+    label: "Count with Repeat Purchase within 6 Month"
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+    # view_label: "Repeat Purchase Facts"
+
+    filters: {
+      field: repeat_orders_within_6m
+      value: "Yes"
+    }
+  }
+
+  measure: Total_2Bulan {
+    label: "Sum 2 Month"
+    type: number
+    sql: CASE
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${count_with_repeat_purchase_within_60d}
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_6m" THEN ${count_with_repeat_purchase_within_6m}
+          END;;
+          # value_format_name: "usd"
+    }
 
   }
