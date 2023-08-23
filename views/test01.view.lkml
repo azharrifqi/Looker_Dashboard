@@ -122,11 +122,11 @@ view: test01 {
   parameter: param2m {
     type: string
     allowed_value: {
-      label: "Repeat Orders within 2 Month"
+      label: "Yes"
       value: "count_with_repeat_purchase_within_60d"
     }
     allowed_value: {
-      label: "Repeat Orders within 6 Month"
+      label: "No"
       value: "count_with_repeat_purchase_within_6m"
     }
   }
