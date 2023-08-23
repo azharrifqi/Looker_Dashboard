@@ -156,16 +156,57 @@ view: superstore_datasets {
   }
 
 
-  parameter: region_param {
+  # parameter: region_param {
+  #   type: unquoted
+  #   allowed_value: {
+  #     label: "Central"
+  #     value: "Central"
+  #   }
+  #   allowed_value: {
+  #     label: "North"
+  #     value: "North"
+  #   }
+  #   allowed_value: {
+  #     label: "South"
+  #     value: "South"
+  #   }
+  # }
+
+  # parameter: category_param {
+  #   type: unquoted
+  #   allowed_value: {
+  #     label: "Office Supplies"
+  #     value: "Office Supplies"
+  #   }
+  #   allowed_value: {
+  #     label: "Technology"
+  #     value: "Technology"
+  #   }
+  #   allowed_value: {
+  #     label: "Furniture"
+  #     value: "Furniture"
+  #   }
+  # }
+
+  parameter: dim_param {
     type: unquoted
     allowed_value: {
-      label: "Central"
-      value: "Central"
+      label: "Region"
+      value: "region"
     }
     allowed_value: {
-      label: "North"
-      value: "North"
+      label: "Category"
+      value: "category"
     }
+    allowed_value: {
+      label: "Sub_category"
+      value: "sub_category"
+    }
+  }
+
+  dimension: dim_opt1 {
+    type: string
+    sql: ${TABLE}.{% parameter dim_param %} ;;
   }
 
   parameter: item_to_add_up {
