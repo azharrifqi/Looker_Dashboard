@@ -174,7 +174,7 @@ view: test01 {
   }
 
   measure: Total_2Bulan {
-    label: "Sum 2 Month"
+    label: "Total_2Bulan"
     type: number
     sql: CASE
           WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${count_with_repeat_purchase_within_60d}
