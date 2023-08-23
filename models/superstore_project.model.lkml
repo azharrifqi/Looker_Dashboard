@@ -66,3 +66,11 @@ explore: status_success {
 explore: status_fail {
   sql_always_where: ${Status}="Fail";;
 }
+
+explore: test01 {
+  join: test2 {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${test01.sub_category} = ${test2.sub_category} ;;
+  }
+}
