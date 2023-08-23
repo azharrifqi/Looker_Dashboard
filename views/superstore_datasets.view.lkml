@@ -533,6 +533,18 @@ view: superstore_datasets {
 
 ### ===== ###
 
+### Test SET ###
+
+  set: try_set  {
+    fields: [
+      region,
+      category,
+      Sum2M
+    ]
+  }
+
+### ===== ###
+
   dimension: area {
     map_layer_name: uk_postcode_areas
     sql: ${city} ;;
