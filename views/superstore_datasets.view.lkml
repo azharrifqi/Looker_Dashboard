@@ -419,7 +419,7 @@ view: superstore_datasets {
   dimension: repeat_orders_within_6m{
     label: "Repeat Orders within 6 Month"
     type: yesno
-    sql:  ${days_until_next_order} <= 6;;
+    sql:  ${days_until_next_order} <= 6 AND ${days_until_next_order} >= 0;;
   }
 
   measure: count_with_repeat_purchase_within_60d {
