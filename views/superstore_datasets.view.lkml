@@ -474,7 +474,7 @@ view: superstore_datasets {
   }
 
   dimension: paramyear_2_year{
-    label: "Year"
+    label: "Year2"
     type: yesno
     # view_label: "Repeat Purchase Facts"
     sql: ${year} Is NOT NULL ;;
