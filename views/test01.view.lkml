@@ -183,4 +183,24 @@ view: test01 {
           # value_format_name: "usd"
     }
 
+    measure: avg_2Bulan {
+      type: average
+      sql: ${count_with_repeat_purchase_within_6m} ;;
+    }
+
+    measure: avg_test {
+      type: average
+      sql: ${count_with_repeat_purchase_within_60d} ;;
+    }
+
+    measure: Avg_2Bulan_test {
+      label: "Total_2Bulan"
+      type: number
+      sql: CASE
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${avg_2Bulan}
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_6m" THEN ${avg_test}
+          END;;
+          # value_format_name: "usd"
+    }
+
   }
