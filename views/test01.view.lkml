@@ -114,12 +114,21 @@ view: test01 {
     #   # drill_fields: [category]
     # }
 
-
-
-    measure: test {
+    measure: Fixed {
       type: number
       sql: ${test2.groupby};;
     }
 
+  parameter: param2m {
+    type: string
+    allowed_value: {
+      label: "Repeat Orders within 2 Month"
+      value: "count_with_repeat_purchase_within_60d"
+    }
+    allowed_value: {
+      label: "Repeat Orders within 6 Month"
+      value: "count_with_repeat_purchase_within_6m"
+    }
+  }
 
   }
