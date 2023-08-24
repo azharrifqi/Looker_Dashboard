@@ -178,6 +178,37 @@ view: test01 {
           END;;
           # value_format_name: "usd"
     }
+  measure: AVG_with_repeat_purchase_within_60d {
+    label: "Count with Repeat Purchase within 2 Month"
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+    # view_label: "Repeat Purchase Facts"
+
+    filters: {
+      field: repeat_orders_within_60d
+      value: "Yes"
+    }
+  }
+  measure: AVG_with_repeat_purchase_within_2m {
+    label: "AVG with Repeat Purchase within 2 Month"
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+    # view_label: "Repeat Purchase Facts"
+
+    filters: {
+      field: repeat_orders_within_2m
+      value: "Yes"
+    }
+  }
+  measure: AVG_2Bulan {
+    label: "Total_2Bulan"
+    type: number
+    sql: CASE
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${count_with_repeat_purchase_within_60d}
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_2m" THEN ${count_with_repeat_purchase_within_2m}
+          END;;
+          # value_format_name: "usd"
+    }
 
   parameter: paramyear {
     type: unquoted
@@ -213,24 +244,5 @@ view: test01 {
             WHEN {% parameter paramyear %}-1 = ${order_year} THEN {% parameter paramyear %}-1
           END;;
   }
-  measure: avg_2Bulan {
-    type: average
-    sql: ${count_with_repeat_purchase_within_2m} ;;
-  }
-
-  measure: avg_test {
-    type: average
-    sql: ${count_with_repeat_purchase_within_60d} ;;
-  }
-
-  measure: Avg_2Bulan_test {
-    # label: "Total_2Bulan"
-    type: number
-    sql: CASE
-          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${avg_2Bulan}
-          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_2m" THEN ${avg_test}
-          END;;
-          # value_format_name: "usd"
-    }
 
   }
