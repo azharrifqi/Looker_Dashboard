@@ -223,7 +223,7 @@ view: test01 {
     sql: ${count_with_repeat_purchase_within_60d} ;;
   }
 
-  measure: Avg_2Bulan {
+  measure: Avg_2Bulan_test {
     # label: "Total_2Bulan"
     type: number
     sql: CASE
