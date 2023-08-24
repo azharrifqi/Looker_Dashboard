@@ -213,5 +213,24 @@ view: test01 {
             WHEN {% parameter paramyear %}-1 = ${order_year} THEN {% parameter paramyear %}-1
           END;;
   }
+  measure: avg_2Bulan {
+    type: average
+    sql: ${count_with_repeat_purchase_within_2m} ;;
+  }
+
+  measure: avg_test {
+    type: average
+    sql: ${count_with_repeat_purchase_within_60d} ;;
+  }
+
+  measure: Avg_2Bulan {
+    # label: "Total_2Bulan"
+    type: number
+    sql: CASE
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${avg_2Bulan}
+          WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_2m" THEN ${avg_test}
+          END;;
+          # value_format_name: "usd"
+    }
 
   }
