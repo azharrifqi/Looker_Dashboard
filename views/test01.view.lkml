@@ -181,14 +181,14 @@ view: test01 {
 
   parameter: paramyear {
     type: unquoted
-    allowed_value: {
-      label: "2011"
-      value: "2011"
-    }
-    allowed_value: {
-      label: "2012"
-      value: "2012"
-    }
+    # allowed_value: {
+    #   label: "2011"
+    #   value: "2011"
+    # }
+    # allowed_value: {
+    #   label: "2012"
+    #   value: "2012"
+    # }
     allowed_value: {
       label: "2013"
       value: "2013"
