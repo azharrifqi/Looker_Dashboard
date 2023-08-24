@@ -193,8 +193,8 @@ view: test01 {
       sql: ${count_with_repeat_purchase_within_60d} ;;
     }
 
-    measure: Avg_2Bulan_test {
-      label: "Total_2Bulan"
+    measure: Avg_2Bulan {
+      # label: "Total_2Bulan"
       type: number
       sql: CASE
           WHEN {% parameter param2m %} = "count_with_repeat_purchase_within_60d" THEN ${avg_2Bulan}
