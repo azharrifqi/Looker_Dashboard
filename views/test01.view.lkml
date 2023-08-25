@@ -171,6 +171,33 @@ view: test01 {
           WHEN {% parameter param_2month %} = "This_Month" THEN ${count_This_Month}
           WHEN {% parameter param_2month %} = "Not_this_month" THEN ${count_Not_this_month}
           END;;
-
   }
+
+  measure: Avg_This_Month {
+    type: average
+    sql: ${TABLE}.total_profit ;;
+
+    filters: {
+      field: This_Month
+      value: "Yes"
+    }
+  }
+
+  measure: Avg_Not_this_month {
+    type: average
+    sql: ${TABLE}.total_profit ;;
+
+    filters: {
+      field: Not_this_month
+      value: "Yes"
+    }
+  }
+  measure: Avg_2Bulan{
+    type: number
+    sql: CASE
+          WHEN {% parameter param_2month %} = "This_Month" THEN ${Avg_This_Month}
+          WHEN {% parameter param_2month %} = "Not_this_month" THEN ${Avg_Not_this_month}
+          END;;
+  }
+
   }
