@@ -168,8 +168,8 @@ view: test01 {
   measure: Total_2Bulan{
     type: number
     sql: CASE
-          WHEN {% parameter param2m %} = "This_Month" THEN ${count_This_Month}
-          WHEN {% parameter param2m %} = "Not_this_month" THEN ${count_Not_this_month}
+          WHEN {% parameter param_2month %} = "This_Month" THEN ${count_This_Month}
+          WHEN {% parameter param_2month %} = "Not_this_month" THEN ${count_Not_this_month}
           END;;
 
   }
