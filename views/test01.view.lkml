@@ -199,5 +199,23 @@ view: test01 {
           WHEN {% parameter param_2month %} = "Not_this_month" THEN ${Avg_Not_this_month}
           END;;
   }
+  parameter: Include_ongoing_Month{
+    type: unquoted
+    allowed_value: {
+      label: "2014"
+      value: "2014"
+    }
+    allowed_value: {
+      label: "2013"
+      value: "2013"
+    }
+  }
+  dimension: year {
+    type: string
+    sql: CASE
+            WHEN {% parameter Include_ongoing_Month %} = ${order_year} THEN {% parameter Include_ongoing_Month %}
+            WHEN {% parameter Include_ongoing_Month %}-1 = ${order_year} THEN {% parameter Include_ongoing_Month %}-1
+          END;;
+  }
 
   }
