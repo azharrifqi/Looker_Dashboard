@@ -123,10 +123,10 @@ view: test01 {
   parameter: param_2month {
     type: string
     allowed_value: {
-      value: "2_Month"
+      value: "This_Month"
     }
     allowed_value: {
-      value: "last_date_this_month"
+      value: "Not_this_month"
     }
 
   }
@@ -137,5 +137,40 @@ view: test01 {
     sql: EXTRACT(MONTH FROM current_date())-EXTRACT(MONTH FROM ${order_date}) ;;
   }
 
+  dimension: This_Month {
+    type: yesno
+    sql: ${days_until_next_order} <=1 AND ${days_until_next_order} >= 0;;
+  }
+  dimension: Not_this_month{
+    type: yesno
+    sql:  ${days_until_next_order} <= 2 AND ${days_until_next_order} > 0;;
+  }
 
+  measure: count_This_Month {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+
+    filters: {
+      field: This_Month
+      value: "Yes"
+    }
+  }
+
+  measure: count_Not_this_month {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+
+    filters: {
+      field: Not_this_month
+      value: "Yes"
+    }
+  }
+  measure: Total_2Bulan{
+    type: number
+    sql: CASE
+          WHEN {% parameter param2m %} = "This_Month" THEN ${count_This_Month}
+          WHEN {% parameter param2m %} = "Not_this_month" THEN ${count_Not_this_month}
+          END;;
+
+  }
   }
