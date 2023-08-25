@@ -209,6 +209,10 @@ view: test01 {
       label: "2013"
       value: "2013"
     }
+    allowed_value: {
+      label: "2012"
+      value: "2012"
+    }
   }
   dimension: year {
     type: string
