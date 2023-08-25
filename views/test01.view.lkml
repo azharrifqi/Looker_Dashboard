@@ -213,8 +213,8 @@ view: test01 {
   dimension: year {
     type: string
     sql: CASE
-            WHEN {% parameter Include_ongoing_Month %} = "2014" THEN ${order_year}
-            --WHEN {% parameter Include_ongoing_Month %}-1 = "2014" THEN ${order_year} -1
+            WHEN {% parameter Include_ongoing_Month %} =  ${order_year} THEN {% parameter Include_ongoing_Month %}
+            WHEN {% parameter Include_ongoing_Month %}-1 = ${order_year} THEN {% parameter Include_ongoing_Month %} -1
           END;;
   }
 
