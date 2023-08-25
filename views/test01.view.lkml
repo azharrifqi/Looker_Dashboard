@@ -130,6 +130,12 @@ view: test01 {
     }
 
   }
+  dimension: days_until_next_order {
+    label: "Month Until Next Order"
+    type: number
+    # view_label: "Repeat Purchase Facts"
+    sql: EXTRACT(MONTH FROM current_date())-EXTRACT(MONTH FROM ${order_date}) ;;
+  }
 
 
   }
