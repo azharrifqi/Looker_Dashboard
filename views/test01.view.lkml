@@ -214,7 +214,7 @@ view: test01 {
     type: string
     sql: CASE
             WHEN {% parameter Include_ongoing_Month %} = "2014" THEN ${order_year}
-            WHEN {% parameter Include_ongoing_Month %}-1 = "2014" THEN ${order_year} -1
+            --WHEN {% parameter Include_ongoing_Month %}-1 = "2014" THEN ${order_year} -1
           END;;
   }
 
