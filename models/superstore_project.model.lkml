@@ -45,9 +45,9 @@ explore: test {
     relationship: many_to_many
     sql_on: ${test_partition_derivedtable.category} = ${test.category} ;;
   }
-  always_filter: {
-    filters: [total_cost : ">=50"]
-  }
+  # always_filter: {
+  #   filters: [total_cost : ">=50"]
+  # }
 }
 
 explore: coba_test {}
