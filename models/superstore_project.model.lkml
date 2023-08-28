@@ -40,10 +40,16 @@ explore: superstore_datasets {
 }
 
 explore: test {
+  join: test_partition_derivedtable {
+    type: left_outer
+    relationship: many_to_many
+    sql_on: ${test_partition_derivedtable.category} = ${test.category} ;;
+  }
   always_filter: {
     filters: [total_cost : ">=50"]
   }
 }
+
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}

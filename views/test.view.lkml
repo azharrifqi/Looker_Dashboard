@@ -49,6 +49,7 @@ view: test {
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
+    primary_key: yes
   }
 
   dimension: country_action {
