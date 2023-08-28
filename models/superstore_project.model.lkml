@@ -74,3 +74,5 @@ explore: test01 {
     sql_on: ${test01.sub_category} = ${test2.sub_category} ;;
   }
 }
+
+explore: test_partition_derivedtable {}

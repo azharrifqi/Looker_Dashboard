@@ -2,7 +2,7 @@ view: test_partition_derivedtable {
   derived_table: {
     explore_source: superstore_datasets {
       column: date {
-        field: superstore_datasets.order
+        field: superstore_datasets.order_date
       }
       column: category {
         field: superstore_datasets.category
@@ -14,8 +14,9 @@ view: test_partition_derivedtable {
         field: superstore_datasets.total_profit
       }
     }
-    partition_keys: ["date"]
-    cluster_keys: ["category","region"]
+    # partition_keys: ["date"]
+    # cluster_keys: ["category","region"]
+    # sql_trigger_value: daily_datagroup ;;
   }
 
 
@@ -31,10 +32,10 @@ view: test_partition_derivedtable {
     sql: ${TABLE}.region ;;
   }
 
-  dimension_group: date {
+  dimension: date {
     description: "The date when each user last ordered"
-    type: time
-    timeframes: [date, week, month, year]
+    type: date
+    # timeframes: [date, week, month, year]
     sql: ${TABLE}.date ;;
   }
 
