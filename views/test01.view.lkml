@@ -221,5 +221,9 @@ view: test01 {
             WHEN {% parameter Include_ongoing_Month %}-1 = ${order_year} THEN {% parameter Include_ongoing_Month %} -1
           END;;
   }
+  measure: test {
+    type: number
+    sql: sum(${total_profit})/ EXTRACT(MONTH FROM current_date()) ;;
+  }
 
   }
