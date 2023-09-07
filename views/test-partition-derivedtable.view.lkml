@@ -16,7 +16,7 @@ view: test_partition_derivedtable {
     }
     # partition_keys: ["date"]
     # cluster_keys: ["category","region"]
-    # sql_trigger_value: daily_datagroup ;;
+    # sql_trigger_value: superstore_project_default_datagroup ;;
   }
 
 
