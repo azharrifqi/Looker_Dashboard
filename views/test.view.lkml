@@ -405,5 +405,9 @@ view: test {
     type: number
     sql: ${Test} ;;
   }
+  measure: check_new_measure {
+    type: number
+    sql: ${test_ADI} ;;
+  }
 
 }
