@@ -32,7 +32,7 @@ persist_with: superstore_project_default_datagroup
 # Each joined view also needs to define a primary key.
 
 explore: superstore_datasets {
-  persist_with: superstore_project_default_datagroup
+  # persist_with: superstore_project_default_datagroup
   access_filter: {
     field: superstore_datasets.country
     user_attribute: country
@@ -40,10 +40,16 @@ explore: superstore_datasets {
 }
 
 explore: test {
-  always_filter: {
-    filters: [total_cost : ">=50"]
+  join: test_partition_derivedtable {
+    type: left_outer
+    relationship: many_to_many
+    sql_on: ${test_partition_derivedtable.category} = ${test.category} ;;
   }
+  # always_filter: {
+  #   filters: [total_cost : ">=50"]
+  # }
 }
+
 explore: coba_test {}
 explore: order_details {}
 explore: order_list {}
@@ -74,3 +80,5 @@ explore: test01 {
     sql_on: ${test01.sub_category} = ${test2.sub_category} ;;
   }
 }
+
+explore: test_partition_derivedtable {}

@@ -49,6 +49,7 @@ view: test {
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
+    primary_key: yes
   }
 
   dimension: country_action {
@@ -398,6 +399,15 @@ view: test {
       }
     }
     sql: ${Test} ;;
+  }
+
+  measure: test_ADI {
+    type: number
+    sql: ${Test} ;;
+  }
+  measure: check_new_measure {
+    type: number
+    sql: ${test_ADI} ;;
   }
 
 }
