@@ -38,6 +38,7 @@ view: checkg {
   measure: MTotal_profit {
     type: sum
     sql: ${mtotal_profit} ;;
+    filters: [category: "-Furniture"]
   }
   # dimension: Status {
   #   type: string
