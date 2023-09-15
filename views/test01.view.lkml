@@ -233,7 +233,7 @@ view: test01 {
   }
   measure: avg_12bulan {
     type: number
-    sql: ${Total_2Bulan}/12;;
+    sql: ${TABLE}.total_profit/12 ;;
   }
 
 
