@@ -199,10 +199,7 @@ view: test01 {
   }
   measure: Avg_2Bulan{
     type: number
-    sql: CASE
-          WHEN {% parameter param_2month %} = "This_Month" THEN ${Avg_This_Month}
-          WHEN {% parameter param_2month %} = "Not_this_month" THEN ${Avg_Not_this_month}
-          END;;
+    sql: ${Total_2Bulan}/2;;
   }
   parameter: Include_ongoing_Month{
     type: unquoted
