@@ -7,6 +7,11 @@ view: test01 {
       sql: ${TABLE}.total_profit ;;
     }
 
+  dimension: orde_date {
+    type: date
+    sql: ${TABLE}.order_date ;;
+  }
+
     dimension: Year_order_date {
       type: number
       sql: EXTRACT(YEAR FROM ${TABLE}.order_date) ;;
@@ -225,5 +230,14 @@ view: test01 {
     type: number
     sql: sum(${total_profit})/ EXTRACT(MONTH FROM current_date()) ;;
   }
+  measure: avg_last_2_months {
+    type: average
+    sql: ${order_date} >= (current_date() - interval '2 months') ;;
+  }
+  measure: avg_12bulan {
+    type: average
+    sql: ${TABLE}.total_profit ;;
+  }
+
 
   }
