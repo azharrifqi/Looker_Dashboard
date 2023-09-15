@@ -232,7 +232,7 @@ view: test01 {
     sql: ${order_date} >= (current_date() - interval '2 months') ;;
   }
   measure: avg_12bulan {
-    type: average
+    type: number
     sql: ${Total_2Bulan}/12;;
   }
 
