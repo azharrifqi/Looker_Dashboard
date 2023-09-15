@@ -2,7 +2,7 @@ view: test01 {
     sql_table_name:`dwh_dla_acl.superstore_datasets` ;;
 
 
-    dimension: total_profit {
+    dimension: total_profit1 {
       type: number
       sql: ${TABLE}.total_profit ;;
     }
@@ -234,6 +234,10 @@ view: test01 {
   measure: avg_12bulan {
     type: number
     sql: ${total_profit}/12 ;;
+  }
+  measure: total_profit {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
   }
 
 
