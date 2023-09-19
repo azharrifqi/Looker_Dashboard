@@ -119,10 +119,10 @@ view: test01 {
     #   # drill_fields: [category]
     # }
 
-    measure: Fixed {
-      type: number
-      sql: ${test2.groupby};;
-    }
+    # measure: Fixed {
+    #   type: number
+    #   sql: ${test2.groupby};;
+    # }
 
 
   parameter: param_2month {
