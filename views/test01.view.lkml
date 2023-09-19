@@ -34,7 +34,7 @@ view: test01 {
     dimension: category {
       type: string
       sql: ${TABLE}.category ;;
-      drill_fields: [category, order_month, total_profit]
+      drill_fields: [order_month, total_profit1]
     }
 
     dimension: sub_category {
