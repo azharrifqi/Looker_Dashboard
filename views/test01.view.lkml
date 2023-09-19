@@ -246,6 +246,7 @@ view: test01 {
   measure: avg_12bulan {
     type: number
     sql: ${total_profit}/12 ;;
+    value_format: "#.00"
   }
   measure: total_profit {
     type: sum
