@@ -2,10 +2,10 @@ view: test01 {
     sql_table_name:`dwh_dla_acl.superstore_datasets` ;;
 
 
-    dimension: total_profit1 {
-      type: number
-      sql: ${TABLE}.total_profit ;;
-    }
+  dimension: total_profit1 {
+    type: number
+    sql: ${TABLE}.total_profit ;;
+  }
 
   dimension: orde_date {
     type: date
@@ -34,7 +34,17 @@ view: test01 {
     dimension: category {
       type: string
       sql: ${TABLE}.category ;;
-      # drill_fields: [total_profit1]
+      drill_fields: [sub_category]
+      link: {
+        label: "success"
+        url: "https://datalabs.cloud.looker.com/embed/dashboards/34?category={{value}}"
+        icon_url: "https://cdn.iconscout.com/icon/free/png-512/free-check-verified-successful-accept-tick-yes-success-2516.png?f=avif&w=256"
+      }
+      link: {
+        label: "Fail"
+        url: "https://datalabs.cloud.looker.com/embed/dashboards/36?category={{value}}"
+        icon_url: "https://cdn.iconscout.com/icon/premium/png-512-thumb/fail-5156466-4302609.png?f=avif&w=256"
+      }
     }
 
     dimension: sub_category {
