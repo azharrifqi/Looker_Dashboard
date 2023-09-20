@@ -147,7 +147,8 @@ view: test01 {
     }
 
   }
-  dimension: days_until_next_order {
+
+  dimension: month_until_next_order {
     label: "Month Until Next Order"
     type: number
     # view_label: "Repeat Purchase Facts"
@@ -156,11 +157,11 @@ view: test01 {
 
   dimension: This_Month {
     type: yesno
-    sql: ${days_until_next_order} <=1 AND ${days_until_next_order} >= 0;;
+    sql: ${month_until_next_order} <=1 AND ${month_until_next_order} >= 0;;
   }
   dimension: Not_this_month{
     type: yesno
-    sql:  ${days_until_next_order} <= 2 AND ${days_until_next_order} > 0;;
+    sql:  ${month_until_next_order} <= 2 AND ${month_until_next_order} > 0;;
   }
 
   measure: count_This_Month {
@@ -253,7 +254,7 @@ view: test01 {
     sql: ${TABLE}.total_profit ;;
   }
 
-  dimension: city_with_liquid {
+  dimension: category_with_liquid {
     type: string
     sql: ${category} ;;
     link: {
