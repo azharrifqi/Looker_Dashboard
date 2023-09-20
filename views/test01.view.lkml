@@ -57,66 +57,66 @@ view: test01 {
       type: number
       sql: EXTRACT(MONTH FROM ${TABLE}.order_date) ;;
     }
-    # measure: Januari {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "1"]
-    # }
-    # measure: Febuary {
-    #   type: sum
-    #   sql: ${total_profit};;
-    #   filters: [Month_order_date: "2"]
-    # }
-    # measure: March {
-    #   type: sum
-    #   sql: ${total_profit} ;;
-    #   filters: [Month_order_date: "3"]
-    # }
-    # measure: April {
-    #   type: sum
-    #   sql: ${TABLE}.total_profit  ;;
-    #   filters: [Month_order_date: "4"]
-    # }
-    # measure: May {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "5"]
-    # }
-    # measure: June {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "6"]
-    # }
-    # measure: July {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "7"]
-    # }
-    # measure: August {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "8"]
-    # }
-    # measure: September {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "9"]
-    # }
-    # measure: October {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "10"]
-    # }
-    # measure: November {
-    #   type: sum
-    #   sql: ${total_profit}  ;;
-    #   filters: [Month_order_date: "11"]
-    # }
-    # measure: December {
-    #   type: sum
-    #   sql: ${total_profit} ;;
-    #   filters: [Month_order_date: "12"]
-    # }
+    measure: Januari {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "1"]
+    }
+    measure: Febuary {
+      type: sum
+      sql: ${TABLE}.total_profit;;
+      filters: [Month_order_date: "2"]
+    }
+    measure: March {
+      type: sum
+      sql: ${TABLE}.total_profit ;;
+      filters: [Month_order_date: "3"]
+    }
+    measure: April {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "4"]
+    }
+    measure: May {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "5"]
+    }
+    measure: June {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "6"]
+    }
+    measure: July {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "7"]
+    }
+    measure: August {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "8"]
+    }
+    measure: September {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "9"]
+    }
+    measure: October {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "10"]
+    }
+    measure: November {
+      type: sum
+      sql: ${TABLE}.total_profit  ;;
+      filters: [Month_order_date: "11"]
+    }
+    measure: December {
+      type: sum
+      sql: ${TABLE}.total_profit ;;
+      filters: [Month_order_date: "12"]
+    }
     # measure: Total_Omzet{
     #   type: sum
     #   sql: ${total_profit};;
