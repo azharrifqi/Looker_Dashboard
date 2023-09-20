@@ -48,11 +48,18 @@ explore: test {
   # always_filter: {
   #   filters: [total_cost : ">=50"]
   # }
+  required_access_grants: [admin_only]
 }
 
-explore: coba_test {}
-explore: order_details {}
-explore: order_list {}
+explore: coba_test {
+  required_access_grants: [admin_only]
+}
+explore: order_details {
+  required_access_grants: [admin_only]
+}
+explore: order_list {
+  required_access_grants: [admin_only]
+}
 explore: checkg {
   join: status_fail {
     type: left_outer
@@ -65,12 +72,15 @@ explore: checkg {
     sql_on: select * FROM order_list join order_details
     on order_list.id = order_details.id;;
   }
+  required_access_grants: [admin_only]
 }
 explore: status_success {
   sql_always_where: ${Status}="success";;
+  required_access_grants: [admin_only]
 }
 explore: status_fail {
   sql_always_where: ${Status}="Fail";;
+  required_access_grants: [admin_only]
 }
 
 explore: test01 {
@@ -81,4 +91,6 @@ explore: test01 {
   }
 }
 
-explore: test_partition_derivedtable {}
+explore: test_partition_derivedtable {
+  required_access_grants: [admin_only]
+}
