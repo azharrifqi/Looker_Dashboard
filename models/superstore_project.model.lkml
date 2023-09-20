@@ -37,6 +37,7 @@ explore: superstore_datasets {
     field: superstore_datasets.country
     user_attribute: country
   }
+  required_access_grants: [admin_only]
 }
 
 explore: test {
