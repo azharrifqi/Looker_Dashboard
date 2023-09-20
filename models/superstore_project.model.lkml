@@ -38,6 +38,7 @@ explore: superstore_datasets {
     user_attribute: country
   }
   required_access_grants: [admin_only]
+  hidden: yes
 }
 
 explore: test {
