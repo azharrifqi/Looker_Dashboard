@@ -258,6 +258,7 @@ view: test01 {
     sql: ${TABLE}.total_profit ;;
   }
 
+
   dimension: category_with_liquid {
     type: string
     sql: ${category} ;;
@@ -334,7 +335,7 @@ view: test01 {
   measure: total_sale_price {
     label: "Total Sales"
     view_label: "_PoP"
-    type: sum
+    type: number
     sql: ${total_profit} ;;
     value_format_name: usd
     drill_fields: [order_date]
