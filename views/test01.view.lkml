@@ -279,14 +279,14 @@ view: test01 {
     label: "WTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DAYOFWEEK FROM ${order_raw}) < EXTRACT(DAYOFWEEK FROM CURRENT_DATE())
-                    OR
-                (EXTRACT(DAYOFWEEK FROM ${order_raw}) = EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) AND
-                EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
-                    OR
-                (EXTRACT(DAYOFWEEK FROM ${order_raw}) = EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) AND
-                EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
-                EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
+    sql:  (EXTRACT(DAYOFWEEK FROM ${order_raw}) < EXTRACT(DAYOFWEEK FROM CURRENT_DATE()));;
+                #     OR
+                # (EXTRACT(DAYOFWEEK FROM ${order_raw}) = EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) AND
+                # EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
+                #     OR
+                # (EXTRACT(DAYOFWEEK FROM ${order_raw}) = EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) AND
+                # EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
+                # EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
   }
 
   dimension: mtd_only {
