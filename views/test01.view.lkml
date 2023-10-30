@@ -295,14 +295,14 @@ view: test01 {
     label: "MTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DAY FROM ${order_raw}) < EXTRACT(DAY FROM CURRENT_DATE())
-                    OR
-                (EXTRACT(DAY FROM ${order_raw}) = EXTRACT(DAY FROM CURRENT_DATE()) AND
-                EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
-                    OR
-                (EXTRACT(DAY FROM ${order_raw}) = EXTRACT(DAY FROM CURRENT_DATE()) AND
-                EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
-                EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
+    sql:  (EXTRACT(DAY FROM ${order_raw}) < EXTRACT(DAY FROM CURRENT_DATE())) ;;
+                #     OR
+                # (EXTRACT(DAY FROM ${order_raw}) = EXTRACT(DAY FROM CURRENT_DATE()) AND
+                # EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
+                #     OR
+                # (EXTRACT(DAY FROM ${order_raw}) = EXTRACT(DAY FROM CURRENT_DATE()) AND
+                # EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
+                # EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
   }
 
   dimension: ytd_only {
@@ -310,14 +310,14 @@ view: test01 {
     label: "YTD"
     view_label: "_PoP"
     type: yesno
-    sql:  (EXTRACT(DOY FROM ${order_raw}) < EXTRACT(DOY FROM CURRENT_DATE())
-                    OR
-                (EXTRACT(DOY FROM ${order_raw}) = EXTRACT(DOY FROM CURRENT_DATE()) AND
-                EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
-                    OR
-                (EXTRACT(DOY FROM ${order_raw}) = EXTRACT(DOY FROM CURRENT_DATE()) AND
-                EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
-                EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
+    sql:  (EXTRACT(DOY FROM ${order_raw}) < EXTRACT(DOY FROM CURRENT_DATE()));;
+                #     OR
+                # (EXTRACT(DOY FROM ${order_raw}) = EXTRACT(DOY FROM CURRENT_DATE()) AND
+                # EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
+                #     OR
+                # (EXTRACT(DOY FROM ${order_raw}) = EXTRACT(DOY FROM CURRENT_DATE()) AND
+                # EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
+                # EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
   }
 
   measure: count {
