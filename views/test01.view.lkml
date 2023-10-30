@@ -1,6 +1,10 @@
 view: test01 {
     sql_table_name:`dwh_dla_acl.superstore_datasets` ;;
 
+  dimension: order_id {
+    type: string
+    sql: ${TABLE}.order_id ;;
+  }
 
   dimension: total_profit1 {
     type: number
@@ -267,6 +271,73 @@ view: test01 {
       url: "https://datalabs.cloud.looker.com/embed/dashboards/36?category={{value}}"
       icon_url: "https://cdn.iconscout.com/icon/premium/png-512-thumb/fail-5156466-4302609.png?f=avif&w=256"
     }
+  }
+
+  # ========================================= #
+  dimension: wtd_only {
+    group_label: "To-Date Filters"
+    label: "WTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DAYOFWEEK FROM ${order_raw}) < EXTRACT(DAYOFWEEK FROM CURRENT_DATE())
+                    OR
+                (EXTRACT(DAYOFWEEK FROM ${order_raw}) = EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) AND
+                EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
+                    OR
+                (EXTRACT(DAYOFWEEK FROM ${order_raw}) = EXTRACT(DAYOFWEEK FROM CURRENT_DATE()) AND
+                EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
+                EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
+  }
+
+  dimension: mtd_only {
+    group_label: "To-Date Filters"
+    label: "MTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DAY FROM ${order_raw}) < EXTRACT(DAY FROM CURRENT_DATE())
+                    OR
+                (EXTRACT(DAY FROM ${order_raw}) = EXTRACT(DAY FROM CURRENT_DATE()) AND
+                EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
+                    OR
+                (EXTRACT(DAY FROM ${order_raw}) = EXTRACT(DAY FROM CURRENT_DATE()) AND
+                EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
+                EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
+  }
+
+  dimension: ytd_only {
+    group_label: "To-Date Filters"
+    label: "YTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DOY FROM ${order_raw}) < EXTRACT(DOY FROM CURRENT_DATE())
+                    OR
+                (EXTRACT(DOY FROM ${order_raw}) = EXTRACT(DOY FROM CURRENT_DATE()) AND
+                EXTRACT(HOUR FROM ${order_raw}) < EXTRACT(HOUR FROM CURRENT_DATE()))
+                    OR
+                (EXTRACT(DOY FROM ${order_raw}) = EXTRACT(DOY FROM CURRENT_DATE()) AND
+                EXTRACT(HOUR FROM ${order_raw}) <= EXTRACT(HOUR FROM CURRENT_DATE()) AND
+                EXTRACT(MINUTE FROM ${order_raw}) < EXTRACT(MINUTE FROM CURRENT_DATE())))  ;;
+  }
+
+  measure: count {
+    label: "Count of order_items"
+    type: count
+    hidden: yes
+  }
+  measure: count_orders {
+    label: "Count of orders"
+    type: count_distinct
+    sql: ${order_id} ;;
+    hidden: yes
+  }
+
+  measure: total_sale_price {
+    label: "Total Sales"
+    view_label: "_PoP"
+    type: sum
+    sql: ${total_profit} ;;
+    value_format_name: usd
+    drill_fields: [order_date]
   }
 
 }
