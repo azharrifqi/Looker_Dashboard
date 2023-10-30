@@ -27,6 +27,7 @@ view: test01 {
         date,
         week,
         month,
+        month_name,
         quarter,
         year
       ]
