@@ -345,6 +345,8 @@ view: test01 {
 # ==========Prev Peroide=========== #
 
   filter: date_filter {
+    hidden: yes
+
     type: date
     datatype: date
   }
