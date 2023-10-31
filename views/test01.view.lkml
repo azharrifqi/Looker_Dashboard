@@ -345,13 +345,12 @@ view: test01 {
 # ==========Prev Peroide=========== #
 
   filter: date_filter {
-    hidden: yes
-
     type: date
     datatype: date
   }
 
   dimension: date_filter_month {
+    hidden: yes
     type: yesno
     sql:  date_diff({% date_start date_filter %}, ${order_raw}, MONTH) = 1;;
   }
