@@ -346,11 +346,12 @@ view: test01 {
 
   filter: date_filter {
     type: date
+    datatype: date
   }
 
   dimension: date_filter_use {
     type: yesno
-    sql:  date_diff(FORMAT_DATE({% date_start date_filter %}), ${order_month}, MONTH) = 1;;
+    sql:  date_diff({% date_start date_filter %}, ${order_month}, MONTH) = 1;;
   }
 
 }
