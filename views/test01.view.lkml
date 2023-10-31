@@ -349,9 +349,16 @@ view: test01 {
     datatype: date
   }
 
-  dimension: date_filter_use {
+  dimension: date_filter_month {
     type: yesno
     sql:  date_diff({% date_start date_filter %}, ${order_raw}, MONTH) = 1;;
+  }
+
+  measure: profit_prev_month {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+
+    filters: [date_filter_month: "yes"]
   }
 
 }
