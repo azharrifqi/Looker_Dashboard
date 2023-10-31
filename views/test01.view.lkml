@@ -350,7 +350,7 @@ view: test01 {
   }
 
   dimension: date_filter_month {
-    hidden: yes
+    # hidden: yes
     type: yesno
     sql:  date_diff({% date_start date_filter %}, ${order_raw}, MONTH) = 1;;
   }
