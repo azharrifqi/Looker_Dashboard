@@ -342,4 +342,15 @@ view: test01 {
     drill_fields: [order_date]
   }
 
+# ===================== #
+
+  filter: date_filter {
+    type: date
+  }
+
+  dimension: date_filter_use {
+    type: yesno
+    sql:  date_diff({% date_start date_filter %}, ${order_month}, MONTH) = 1;;
+  }
+
 }
