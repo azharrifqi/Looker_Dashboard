@@ -362,4 +362,17 @@ view: test01 {
     filters: [date_filter_month: "yes"]
   }
 
+  dimension: date_filter_year {
+    # hidden: yes
+    type: yesno
+    sql:  date_diff({% date_start date_filter %}, ${order_raw}, YEAR) = 1;;
+  }
+
+  measure: profit_prev_year {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+
+    filters: [date_filter_year: "yes"]
+  }
+
 }
