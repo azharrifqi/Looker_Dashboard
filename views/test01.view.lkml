@@ -376,7 +376,7 @@ view: test01 {
   }
 
   parameter: param_provit {
-    type: unquoted
+    type: string
     allowed_value: {
       value: "profit_prev_month"
       label: "Profit Prev Month"
