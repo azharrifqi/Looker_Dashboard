@@ -375,4 +375,31 @@ view: test01 {
     filters: [date_filter_year: "yes"]
   }
 
+  parameter: param_provit {
+    type: unquoted
+    allowed_value: {
+      value: "profit_prev_month"
+      label: "Profit Prev Month"
+    }
+    allowed_value: {
+      value: "profit_prev_year"
+      label: "Profit Prev Year"
+    }
+  }
+
+  measure: show_provit {
+    type: number
+    sql:
+        CASE
+          WHEN {% parameter param_provit %} = "profit_prev_month" THEN ${profit_prev_month}
+          WHEN {% parameter param_provit %} = "profit_prev_year" THEN ${profit_prev_year}
+        END ;;
+  }
+
+
+
+
+
+
+
 }
