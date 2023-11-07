@@ -355,7 +355,7 @@ view: test01 {
     sql:  date_diff({% date_start date_filter %}, ${order_raw}, MONTH) = 1;;
   }
 
-  measure: profit_prev_month {
+  measure: FI1 {
     type: sum
     sql: ${TABLE}.total_profit ;;
 
@@ -368,8 +368,8 @@ view: test01 {
     sql:  date_diff({% date_start date_filter %}, ${order_raw}, YEAR) = 1;;
   }
 
-  measure: profit_prev_year {
-    type: sum
+  measure: FI2 {
+    type: average
     sql: ${TABLE}.total_profit ;;
 
     filters: [date_filter_year: "yes"]
@@ -378,11 +378,11 @@ view: test01 {
   parameter: param_provit {
     type: string
     allowed_value: {
-      value: "profit_prev_month"
+      value: "FI1"
       label: "Profit Prev Month"
     }
     allowed_value: {
-      value: "profit_prev_year"
+      value: "FI2"
       label: "Profit Prev Year"
     }
   }
@@ -391,8 +391,8 @@ view: test01 {
     type: number
     sql:
         CASE
-          WHEN {% parameter param_provit %} = "profit_prev_month" THEN ${profit_prev_month}
-          WHEN {% parameter param_provit %} = "profit_prev_year" THEN ${profit_prev_year}
+          WHEN {% parameter param_provit %} = "FI1" THEN ${FI1}
+          WHEN {% parameter param_provit %} = "FI2" THEN ${FI2}
         END ;;
   }
 
