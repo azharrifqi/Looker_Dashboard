@@ -2,14 +2,16 @@ view: coba_join {
   derived_table: {
     sql: SELECT
           *
-        FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets`
-        WHERE
-        {% condition order_region %} region {% endcondition %};;
+        FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets` AS d;;
   }
 
   filter: order_region {
     type: string
     sql: ${region} ;;
+  }
+  parameter: param_region {
+    type: string
+    allowed_value: {value: "Central"}
   }
   dimension: region {
     type: string
