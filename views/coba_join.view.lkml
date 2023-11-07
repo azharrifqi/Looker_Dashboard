@@ -9,7 +9,7 @@ view: coba_join {
 
   filter: order_region {
     type: string
-    sql: {% condition order_region %} ${region} {% endcondition %} ;;
+    sql: ${region} ;;
   }
   dimension: region {
     type: string
