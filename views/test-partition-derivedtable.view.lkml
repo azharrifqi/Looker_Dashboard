@@ -102,4 +102,19 @@ view: test_partition_derivedtable {
           WHEN {% parameter param_provit %} = "FI2" THEN ${FI2}
         END ;;
   }
+
+# Try Templated_Filter #
+  parameter: param_region {
+    type: string
+    suggest_dimension: region
+  }
+
+  measure: show_cost {
+    type: number
+    sql:
+      CASE
+          WHEN {% parameter param_region %} = "Central" THEN ${FI1}
+          WHEN {% parameter param_region %} = "North" THEN ${FI2}
+        END;;
+  }
 }
