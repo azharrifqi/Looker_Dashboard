@@ -4,7 +4,7 @@ view: coba_join {
           *
         FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets` AS d
         WHERE
-        {% condition order_region %} region {% endcondition %}};;
+        {% condition order_region %} region {% endcondition %};;
   }
 
   filter: order_region {
