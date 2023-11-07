@@ -11,10 +11,10 @@ view: coba_join {
     type: string
     suggest_dimension: region
   }
-  parameter: param_region {
-    type: string
-    allowed_value: {value: "Central"}
-  }
+  # parameter: param_region {
+  #   type: string
+  #   allowed_value: {value: "Central"}
+  # }
   dimension: region {
     type: string
     sql: ${TABLE}.region ;;
