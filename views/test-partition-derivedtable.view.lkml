@@ -60,7 +60,46 @@ view: test_partition_derivedtable {
     sql: ${TABLE}.total_profit ;;
   }
 
-  # measure: show_profit {
-
+  # filter: filter_profit {
+  #   type: string
+  #   # suggest_dimension: region
   # }
+
+  # measure: show_profit {
+  #   type: number
+  #   sql: case
+  #       when {% condition filter_profit %} = 'TEST' THEN ${total_profit}
+  #       ELSE ${avg_profit}
+  #       END;;
+  # }
+  measure: FI1 {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+  }
+
+  measure: FI2 {
+    type: average
+    sql: ${TABLE}.total_profit ;;
+  }
+
+  parameter: param_provit {
+    type: string
+    allowed_value: {
+      value: "FI1"
+      label: "Profit SUM"
+    }
+    allowed_value: {
+      value: "FI2"
+      label: "Profit AVG"
+    }
+  }
+
+  measure: show_provit {
+    type: number
+    sql:
+        CASE
+          WHEN {% parameter param_provit %} = "FI1" THEN ${FI1}
+          WHEN {% parameter param_provit %} = "FI2" THEN ${FI2}
+        END ;;
+  }
 }
