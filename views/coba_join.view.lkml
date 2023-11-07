@@ -2,7 +2,19 @@ view: coba_join {
   derived_table: {
     sql: SELECT
           *
-        FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets`;;
+        FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets`
+        WHERE
+        {% condition order_region %} region {% endcondition %}
+      GROUP BY 1;;
+  }
+
+  filter: order_region {
+    type: string
+    sql: {% condition order_region %} ${region} {% endcondition %} ;;
+  }
+  dimension: region {
+    type: string
+    sql: ${TABLE}.region ;;
   }
   dimension: category {
     type: string
