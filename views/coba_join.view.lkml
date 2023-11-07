@@ -2,7 +2,9 @@ view: coba_join {
   derived_table: {
     sql: SELECT
           *
-        FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets` AS d;;
+        FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets` AS d
+        WHERE
+        region = {{% parameter param_region %}};;
   }
 
   filter: order_region {
