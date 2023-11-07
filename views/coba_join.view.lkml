@@ -11,10 +11,10 @@ view: coba_join {
     type: string
     suggest_dimension: region
   }
-  # parameter: param_region {
-  #   type: string
-  #   allowed_value: {value: "Central"}
-  # }
+  parameter: param_region {
+    type: string
+    suggest_dimension: region
+  }
   dimension: region {
     type: string
     sql: ${TABLE}.region ;;
@@ -47,6 +47,14 @@ view: coba_join {
   measure: average_cost {
     type: average
     sql: ${cost} ;;
+  }
+  measure: show_cost {
+    type: number
+    sql:
+      CASE
+          WHEN {% parameter param_region %} = "Central" THEN ${total_cost}
+          WHEN {% parameter param_region %} = "North" THEN ${average_cost}
+        END;;
   }
 
   dimension: country {
