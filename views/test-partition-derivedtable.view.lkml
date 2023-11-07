@@ -106,7 +106,7 @@ view: test_partition_derivedtable {
 # Try Templated_Filter #
   parameter: param_region {
     type: string
-    suggest_dimension: region
+    suggest_dimension: sub_category
   }
 
   measure: show_cost {
