@@ -94,4 +94,9 @@ explore: test01 {
 
 explore: test_partition_derivedtable {
   required_access_grants: [admin_only]
+  join: test2 {
+    type: left_outer
+    relationship: many_to_one
+    sql_on:  ;;
+  }
 }

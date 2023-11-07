@@ -7,6 +7,9 @@ view: test_partition_derivedtable {
       column: category {
         field: superstore_datasets.category
       }
+      column: sub_category {
+        field: superstore_datasets.sub_category
+      }
       column: region {
         field: superstore_datasets.region
       }
@@ -24,6 +27,12 @@ view: test_partition_derivedtable {
     description: "Unique ID for each user that has ordered"
     type: string
     sql: ${TABLE}.category ;;
+  }
+
+  dimension: sub_category {
+    description: "Unique ID for each user that has ordered"
+    type: string
+    sql: ${TABLE}.sub_category ;;
   }
 
   dimension: region {
@@ -45,4 +54,13 @@ view: test_partition_derivedtable {
     sql: ${TABLE}.total_profit ;;
   }
 
+  measure: avg_profit {
+    description: "Use this for counting lifetime orders across many users"
+    type: average
+    sql: ${TABLE}.total_profit ;;
+  }
+
+  # measure: show_profit {
+
+  # }
 }
