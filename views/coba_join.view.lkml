@@ -4,12 +4,12 @@ view: coba_join {
           *
         FROM `dla-data-warehouse.dwh_dla_acl.superstore_datasets` AS d
         WHERE
-        region = {% parameter param_region %};;
+        {% condition order_region %} region {% endcondition %}};;
   }
 
   filter: order_region {
     type: string
-    sql: ${region} ;;
+    suggest_dimension: region
   }
   parameter: param_region {
     type: string
