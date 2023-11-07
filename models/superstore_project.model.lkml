@@ -97,6 +97,11 @@ explore: test_partition_derivedtable {
   join: test2 {
     type: left_outer
     relationship: many_to_one
-    sql_on:  ;;
+    sql_on: ${test_partition_derivedtable.sub_category} = ${test2.sub_category};;
+  }
+  join: coba_join {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${test_partition_derivedtable.category} = ${coba_join.category};;
   }
 }
