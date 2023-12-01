@@ -203,6 +203,10 @@ view: superstore_datasets {
       label: "Sub_category"
       value: "sub_category"
     }
+    allowed_value: {
+      label: "NULL"
+      value: "NULL"
+    }
   }
 
   dimension: dim_opt1 {
