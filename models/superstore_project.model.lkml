@@ -80,6 +80,10 @@ explore: status_success {
   required_access_grants: [admin_only]
 }
 explore: status_fail {
+  access_filter: {
+    field: status_fail.country
+    user_attribute: country
+  }
   sql_always_where: ${Status}="Fail";;
   required_access_grants: [admin_only]
 }
