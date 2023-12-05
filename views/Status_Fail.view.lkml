@@ -5,6 +5,10 @@ view: status_fail {
     type: string
     sql: ${TABLE}.category ;;
   }
+  dimension: country {
+    type: string
+    sql: ${TABLE}.country ;;
+  }
   dimension: profit {
     type: number
     sql: ${TABLE}.profit ;;
