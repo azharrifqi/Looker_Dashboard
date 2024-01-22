@@ -575,9 +575,19 @@ view: superstore_datasets {
     type: date
   }
 
+  dimension: filter_start{
+    type: date
+    sql: {% date_start date_param %} ;;
+  }
+
+  dimension: filter_end{
+    type: date
+    sql: {% date_end date_param %} ;;
+  }
+
   measure: prev_jumlah_order{
     type: number
-    sql: IF( date_add({% parameter date_param %}, interval 1 month), ${jumlah_order}, 0 ) ;;
+    sql: IF( ${filter_end}, interval 1 month) = ${order_date}, ${jumlah_order}, 0 ) ;;
   }
 
 }
