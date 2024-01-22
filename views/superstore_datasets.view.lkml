@@ -590,7 +590,7 @@ view: superstore_datasets {
     type: number
     sql: COUNT(DISTINCT(
           IF(
-            date_diff({% date_start date_param %}, ${order_date}, MONTH) >=  ${order_date},
+            date_diff({% date_start date_param %}, ${order_date}, MONTH) = 1,
           superstore_datasets.order_id, NULL )
           )
         ) ;;
