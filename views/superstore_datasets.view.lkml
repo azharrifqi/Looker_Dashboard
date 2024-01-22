@@ -573,6 +573,7 @@ view: superstore_datasets {
 
   filter: date_param {
     type: date
+    datatype: date
   }
 
   dimension: filter_start{
