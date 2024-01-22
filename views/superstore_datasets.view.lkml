@@ -588,7 +588,7 @@ view: superstore_datasets {
 
   measure: prev_jumlah_order{
     type: number
-    sql: COUNT(DISTINCT(IF( LAST_DAY(date_add({% date_start date_param %} , interval 1 month)) >=  ${order_date}, superstore_datasets.order_id, NULL ) ;;
+    sql: COUNT(DISTINCT(IF( LAST_DAY(date_add({% date_start date_param %} , interval 1 month)) >=  ${order_date}, superstore_datasets.order_id, NULL ))) ;;
     # COUNT(DISTINCT(IF( LAST_DAY(date_add('2014-06-30', interval 1 month)) >=  superstore_datasets.order_date, superstore_datasets.order_id, NULL )))
   }
 
