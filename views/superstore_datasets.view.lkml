@@ -561,14 +561,23 @@ view: superstore_datasets {
       end;;
 
   }
-  measure: jumal_order {
-    type: count_distinct
-    sql: ${TABLE}.order_id ;;
-  }
+  # measure: jumal_order {
+  #   type: number
+  #   sql: ${TABLE}.order_id ;;
+  # }
 
   measure: jumlah_order {
     type: count_distinct
     sql: ${TABLE}.order_id ;;
+  }
+
+  parameter: date_param {
+    type: date
+  }
+
+  measure: prev_jumlah_order{
+    type: number
+    sql: IF( date_add(${date_param}, interval 1 month), ${jumlah_order}, 0 ) ;;
   }
 
 }
