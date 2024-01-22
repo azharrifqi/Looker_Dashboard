@@ -571,7 +571,7 @@ view: superstore_datasets {
     sql: ${TABLE}.order_id ;;
   }
 
-  parameter: date_param {
+  filter: date_param {
     type: date
   }
 
