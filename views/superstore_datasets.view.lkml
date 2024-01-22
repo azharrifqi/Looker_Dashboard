@@ -577,7 +577,7 @@ view: superstore_datasets {
 
   measure: prev_jumlah_order{
     type: number
-    sql: IF( date_add({% parameter date_param %} interval 1 month), ${jumlah_order}, 0 ) ;;
+    sql: IF( date_add({% parameter date_param %}, interval 1 month), ${jumlah_order}, 0 ) ;;
   }
 
 }
