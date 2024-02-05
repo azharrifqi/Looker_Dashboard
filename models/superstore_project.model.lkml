@@ -40,6 +40,15 @@ explore: superstore_datasets {
   # required_access_grants: [admin_only]
 }
 
+explore: superstore_datasets_raw {
+  # persist_with: superstore_project_default_datagroup
+  # access_filter: {
+  #   field: superstore_datasets.country
+  #   user_attribute: country
+  # }
+  # required_access_grants: [admin_only]
+}
+
 explore: test {
   join: test_partition_derivedtable {
     type: left_outer
