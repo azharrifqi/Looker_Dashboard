@@ -316,6 +316,15 @@ view: superstore_datasets {
     required_fields: [cities_liquid]
   }
 
+  parameter: num_a {
+    type: number
+  }
+
+  measure: profit_with_a {
+    type: number
+    sql: ${num_a}*${mtotal_profit} ;;
+  }
+
   dimension: cities_liquid {
     type: number
 
