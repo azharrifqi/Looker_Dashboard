@@ -322,7 +322,7 @@ view: superstore_datasets {
 
   measure: profit_with_a {
     type: number
-    sql: ${num_a}*${mtotal_profit} ;;
+    sql: {% parameter num_a %}*${mtotal_profit} ;;
   }
 
   dimension: cities_liquid {
