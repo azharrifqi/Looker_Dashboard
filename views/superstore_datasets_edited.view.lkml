@@ -606,4 +606,59 @@ view: superstore_datasets {
     # COUNT(DISTINCT(IF( LAST_DAY(date_add('2014-06-30', interval 1 month)) >=  superstore_datasets.order_date, superstore_datasets.order_id, NULL )))
   }
 
+###=============###
+
+  filter: date_filter {
+    type: date
+    datatype: date
+  }
+
+  dimension: date_filter_month {
+    # hidden: yes
+    type: yesno
+    sql:  date_diff({% date_start date_filter %}, ${order_raw}, MONTH) = 1;;
+  }
+
+  measure: FI1 {
+    type: sum
+    sql: ${TABLE}.total_profit ;;
+
+    filters: [date_filter_month: "yes"]
+  }
+
+  dimension: date_filter_year {
+    # hidden: yes
+    type: yesno
+    sql:  date_diff({% date_start date_filter %}, ${order_raw}, YEAR) = 1;;
+  }
+
+  measure: FI2 {
+    type: average
+    sql: ${TABLE}.total_profit ;;
+
+    filters: [date_filter_year: "yes"]
+  }
+
+  parameter: param_provit {
+    type: string
+    allowed_value: {
+      value: "FI1"
+      label: "Profit Prev Month"
+    }
+    allowed_value: {
+      value: "FI2"
+      label: "Profit Prev Year"
+    }
+  }
+
+  measure: show_provit {
+    type: number
+    sql:
+        CASE
+          WHEN {% parameter param_provit %} = "FI1" THEN ${FI1}
+          WHEN {% parameter param_provit %} = "FI2" THEN ${FI2}
+        END ;;
+  }
+
+
 }
