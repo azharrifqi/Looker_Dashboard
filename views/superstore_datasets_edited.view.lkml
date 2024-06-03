@@ -240,6 +240,7 @@ view: superstore_datasets {
   dimension: sub_category {
     type: string
     sql: ${TABLE}.sub_category ;;
+    required_access_grants: [admin_only]
   }
 
   # dimension: total_cost {
