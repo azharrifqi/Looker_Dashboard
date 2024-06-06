@@ -126,6 +126,15 @@ view: superstore_datasets {
     sql: ${TABLE}.region ;;
   }
 
+  dimension: region_id {
+    type: string
+    sql: CASE ${region}
+        WHEN 'Central' THEN '1c'
+        WHEN 'North' THEN '2n'
+        WHEN 'South' THEN '3s'
+        END;;
+  }
+
   dimension: segment {
     type: string
     sql: ${TABLE}.segment ;;
@@ -235,6 +244,16 @@ view: superstore_datasets {
   dimension: ship_mode {
     type: string
     sql: ${TABLE}.ship_mode ;;
+  }
+
+  dimension: ship_mode_id {
+    type: string
+    sql: CASE ${ship_mode}
+        WHEN 'Economy' THEN '1e'
+        WHEN 'Economy Plus' THEN '2ep'
+        WHEN 'Immediate' THEN '3i'
+        WHEN 'Priority' THEN '4p'
+        END ;;
   }
 
   dimension: sub_category {
