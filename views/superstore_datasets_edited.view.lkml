@@ -438,6 +438,12 @@ view: superstore_datasets {
     sql: (${prev_profit}-${prev11_profit})/${prev_profit} ;;
   }
 
+
+  measure: dev_provit_growth {
+    type: number
+    sql: (${prev_profit}-${prev11_profit})/${prev_profit}*20 ;;
+  }
+
   dimension: max_date {
     type: date
     sql: MAX(${order_date}) ;;
